@@ -1,41 +1,123 @@
-\documentclass[12pt,a4paper]{article}
-\usepackage[T1]{fontenc} % codificação da fonte em 8-bits
-\usepackage[utf8]{inputenc} % acentuação direta
-\usepackage[brazil]{babel} % em portugues brasileiro
-\usepackage[onehalfspacing]{setspace}
-\usepackage[lmargin=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
+%===============================================================================
+% $Id: ifacconf.tex 19 2011-10-27 09:32:13Z jpuente $  
+% Template for IFAC meeting papers
+% Copyright (c) 2007-2008 International Federation of Automatic Control
+%===============================================================================
+\documentclass{ifacconf}
 
-\usepackage{indentfirst} % Tabulação dos parágrafos
-\usepackage{array} % Centralizar a célula da tabela
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{float}
+\usepackage{graphicx}      % include this line if your document contains figures
+\usepackage{natbib}        % required for bibliography
+%===============================================================================
+\begin{document}
+\begin{frontmatter}
 
-% regra de hifenização das palavras nao acentuadas:
-% nao requer \usepackage[T1]{fontenc}
-\hyphenation{li-vro tes-te cha-ve bi-blio-te-ca}
-% regra de hifenização das palavras acentuadas:
-% requer \usepackage[T1]{fontenc}
-\hyphenation{co-men-tá-rio re-fe-rên-cia}
+\title{Grupo 3 - Módulo 1 - Massa Mola} 
+% Title, preferably not more than 10 words.
 
-\sloppy % preferencia a underflow (do que overflow)
+\thanks[footnoteinfo]{Sponsor and financial support acknowledgment
+goes here. Paper titles should be written in uppercase and lowercase
+letters, not all uppercase.}
 
-\title{Relatório do controle do sistema Massa-Mola}
+\author[First]{Felipe Nery Barcelos Araújo (2020021190)} 
+\author[First]{Gustavo Vieira Barbosa (2020021352)} 
+\author[First]{Matheus Marques Gonçalves de Paula (2020068995)}
 
-\author{
-  Felipe Nery Barcelos Araujo\\
-  \and
-  Gustavo Vieira Barbosa\\
-  \and
-  Mateus Marques Gonçalves de Paula\\
+\address[First]{
+  Engenharia de Controle e Automação, Universidade Federal de Minas Gerais, MG
+   (e-mails: felipenery@ufmg.br, gustavovbarbosa@ufmg.br, mmgp@ufmg.br)
 }
 
-\date{Agosto 2023}
+%Escrever um resumo do documento aqui, não pode ultrapassar 250 palavras
+\begin{abstract}               
+These instructions give you guidelines for preparing papers for IFAC
+technical meetings. Please use this document as a template to prepare
+your manuscript. For submission guidelines, follow instructions on
+paper submission system as well as the event website.
+\end{abstract}
 
-\begin{document} % inicio do documento
+%Escrever até 5 palavras chave do relatório aqui
+\begin{keyword}
+Five to ten keywords, preferably chosen from the IFAC keyword list.
+\end{keyword}
 
-\maketitle
+\end{frontmatter}
 
-Escrever neh...
+%===============================================================================
 
+\section{Introdução}
+
+Os sistemas massa-mola são capazes de representar uma ampla gama de fenômenos
+físicos e engenharia. De forma a desempenhar um papel fundamental na modelagem 
+desses fenômenos e sistemas mecânicos complexos, tais como: suspensões veiculares, 
+sistemas de suspensão de edifícios, sistemas biomecânicos e muitos outros o sistema 
+massa-mola representa com elevada exatidão.
+
+\section{Descrição da planta e especificação do desempenho desejado}
+
+Next we see a few subsections.
+
+\subsection{Descrição da planta e especificação do desempenho desejado}
+
+Faça tudo
+
+\section{Modelagem matemática e validação do modelo}
+
+Modeloo
+
+\subsection{Modelagem matemática}
+
+Modelo 2
+
+\subsection{validação do modelo}
+
+Modelo 3
+
+\section{Projeto do controlador}
+
+Controle credo kkkkkkkkkk
+
+\section{Resultados experimentais em malha fechada}
+
+
+\section{Conclusão}
+
+Nery vai concluir o trabalho pra gente!
+
+\bibliography{ifacconf}             % bib file to produce the bibliography
+                                                     % with bibtex (preferred)
+                                                   
+%\begin{thebibliography}{xx}  % you can also add the bibliography by hand
+
+%\bibitem[Able(1956)]{Abl:56}
+%B.C. Able.
+%\newblock Nucleic acid content of microscope.
+%\newblock \emph{Nature}, 135:\penalty0 7--9, 1956.
+
+%\bibitem[Able et~al.(1954)Able, Tagg, and Rush]{AbTaRu:54}
+%B.C. Able, R.A. Tagg, and M.~Rush.
+%\newblock Enzyme-catalyzed cellular transanimations.
+%\newblock In A.F. Round, editor, \emph{Advances in Enzymology}, volume~2, pages
+%  125--247. Academic Press, New York, 3rd edition, 1954.
+
+%\bibitem[Keohane(1958)]{Keo:58}
+%R.~Keohane.
+%\newblock \emph{Power and Interdependence: World Politics in Transitions}.
+%\newblock Little, Brown \& Co., Boston, 1958.
+
+%\bibitem[Powers(1985)]{Pow:85}
+%T.~Powers.
+%\newblock Is there a way out?
+%\newblock \emph{Harpers}, pages 35--47, June 1985.
+
+%\bibitem[Soukhanov(1992)]{Heritage:92}
+%A.~H. Soukhanov, editor.
+%\newblock \emph{{The American Heritage. Dictionary of the American Language}}.
+%\newblock Houghton Mifflin Company, 1992.
+
+%\end{thebibliography}
+
+\appendix
+\section{A summary of Latin grammar}    % Each appendix must have a short title.
+\section{Some Latin vocabulary}              % Sections and subsections are supported  
+                                                                         % in the appendices.
 \end{document}

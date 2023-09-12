@@ -2,3 +2,6 @@
 *.fdb_latexmk
 *.fls
 *.synctex.gz
+root.*
+main.bbl
+main.blg
