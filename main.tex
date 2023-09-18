@@ -78,11 +78,132 @@ Faça tudo
 
 \section{Modelagem matemática e validação do modelo}
 
-Modeloo
+
 
 \subsection{Modelagem matemática}
 
-Modelo 2
+Após a definição do sistema em espaço de estados, deve-se encontrar os parâmetros
+k1, k2, c1, c2, m1 e m2. Para isso, analisa-se um sistema simples com um carro e uma mola,
+cuja equação característica é representada por:
+\begin{equation}
+  s^2 + \frac{c}{m}s + \frac{k}{m} = 0
+\end{equation}
+Esse é um sistema de segunda ordem, que é representado tipicamente por:
+\begin{equation}
+  s^2 + 2\omega_n \zeta s + \omega_n^2 = 0
+\end{equation}
+onde a frequência natural $\omega_n$ e o amortecimento $\zeta$ podem ser
+encontrados facilmente através de respostas ao degrau.
+Comparando os termos de ambas equações, tem-se:
+\begin{equation}
+  \label{eq:termo1}
+  \frac{c}{m} = 2\omega_n \zeta
+\end{equation}
+\begin{equation}
+  \label{eq:termo2}
+  \frac{k}{m} = \omega_n^2
+\end{equation}
+Sendo assim, tem-se duas equações e três variáveis. Portanto, foram realizados quatro testes com duas diferentes partes da planta.
+O primeiro teste consistiu na aplicação de um degrau de 2,5 cm
+no sistema com a mola $k1$ e o carro $m1$ com adição de 2 kg de massa. O segundo teste consistiu na
+aplicação desse mesmo degrau, mas sem massa adicional no carro. Dessa forma, na saídas de ambos os testes,
+verifica-se o amortecimento e a frequencia natural, seguindo as equações \ref{eq:termo1} e \ref{eq:termo2}.
+Tem-se, portanto, o seguinte sistema de equações:
+\begin{equation}
+  \label{eq:sistema1}
+  \left\{
+\begin{array}{lr}
+  \frac{c_1}{m_1 + 2} = 2\omega_{n1} \zeta_1 \\
+  \frac{k_1}{m_1 + 2} = \omega_{n1}^2 \\
+  \frac{k_1}{m_1} = \omega_{n2}^2
+\end{array}
+\right.
+\end{equation}
+Calcula-se, a frequência natural e o amortecimento dos testes 1 e 2 utilizando analisando a resposta ao degrau, juntamente
+da função $findpeaks$ do MATLAB. Para o amortecimento, as amplitudes dos picos caem exponencialmente através da relação
+$e^{\omega_n \zeta}$. Sendo assim, os valores dessas foram submetidos a uma linearização através de um logaritmo
+natural. O resultado da linearização é uma função de primeira ordem, onde o coeficiente angular é igual a $\omega_n \zeta$.
+Os gráficos das respostas ao degrau dos testes 1 e 2 estão presentes nas figuras \ref{fig:picos_teste_1} e \ref{fig:picos_teste_2}.
+Os gráficos das amplitudes linearizadas sobre o tempo estão presentes nas figuras \ref{fig:regressao_teste_1} e \ref{fig:regressao_teste_2}.
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/picos_teste_1.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta ao degrau do teste 1. Fonte: Autoral.} 
+  \label{fig:picos_teste_1}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/picos_teste_2.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta ao degrau do teste 2. Fonte: Autoral.} 
+  \label{fig:picos_teste_2}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/regressao_teste_1.png}    % The printed column width is 8.4 cm.
+  \caption{Amplitudes linearizadas do teste 1. Fonte: Autoral.} 
+  \label{fig:regressao_teste_1}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/regressao_teste_2.png}    % The printed column width is 8.4 cm.
+  \caption{Amplitudes linearizadas do teste 2. Fonte: Autoral.} 
+  \label{fig:regressao_teste_2}
+  \end{center}
+\end{figure}
+
+Portanto, através dos gráficos da figura \ref{fig:picos_teste_1}, com ajuda do MATLAB, foi obtido uma frequência
+natural de:
+\begin{equation}
+  \omega_{n1} = 10,5956
+\end{equation}
+O resultado da regressão linear da figura \ref{fig:regressao_teste_1} permite dizer que:
+\begin{equation}
+  0,6032 = \omega_{n1} \zeta_1  \rightarrow  \zeta_1 = \frac{0,6032}{\omega_{n1}} = 0,0569
+\end{equation}
+O mesmo procedimento foi feito com os resultados do teste 2, presentes nas figuras \ref{fig:picos_teste_2} e \ref{fig:regressao_teste_2}.
+\begin{equation}
+  \omega_{n2} = 19,6965
+\end{equation}
+\begin{equation}
+  1,492 = \omega_{n2} \zeta_2  \rightarrow  \zeta_2 = \frac{1,492}{\omega_{n2}} = 0,0757
+\end{equation}
+
+Com os valores de $\omega_{n1}, \omega_{n2}, \zeta_1$ e $\zeta_2$ em mãos, é possível resolver o sistema \ref{eq:sistema1}
+\begin{equation}
+  \left\{
+\begin{array}{lr}
+  \frac{c_1}{m_1 + 2} = 2\omega_{n1} \zeta_1 \\
+  \frac{k_1}{m_1 + 2} = \omega_{n1}^2 \\
+  \frac{k_1}{m_1} = \omega_{n2}^2
+\end{array}
+\right.
+\end{equation}
+
+\begin{equation}
+  \left\{
+\begin{array}{lr}
+  \frac{c_1}{m_1 + 2} = 2 \cdot 10,5956 \cdot 0,0569 \\
+  \frac{k_1}{m_1 + 2} = 10,5956^2 \\
+  \frac{k_1}{m_1} = 19,6965^2
+\end{array}
+\right.
+\end{equation}
+
+\begin{equation}
+  \left\{
+\begin{array}{lr}
+  m_1 = 0,8145 \\
+  c_1 = 3,3954 \\
+  k_1 = 315,9872
+\end{array}
+\right.
+\end{equation}
 
 \subsection{Validação do modelo}
 
