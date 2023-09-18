@@ -72,9 +72,10 @@ massa-mola, bem como o fundamento do controle utilizado e demonstrações práti
 
 Next we see a few subsections.
 
-\subsection{Descrição da planta e especificação do desempenho desejado}
+\subsection{Especificação do desempenho desejado}
 
-Faça tudo
+O controle a ser realizado visa, inicialmente, controlar a posição do segundo carrinho bem como tornar o sistema estável, erro nulo para entrada de degrau, 
+tempo de acomodação menor do que 4 segundos e sobressinal até 20\%.
 
 \section{Modelagem matemática e validação do modelo}
 
@@ -205,6 +206,7 @@ Com os valores de $\omega_{n1}, \omega_{n2}, \zeta_1$ e $\zeta_2$ em mãos, é p
 \right.
 \end{equation}
 
+
 \subsection{Validação do modelo}
 
 Modelo 3
@@ -216,8 +218,30 @@ por garantir erro nulo para entrada em degrau e por ser amplamente difundido nas
 e sistemas de controle em geral. A seguir será explicitado as tentativas para obter esse controlador.
 
 \subsection{Primeira tentativa} %Falha obtida
-Para obtenção dos parâmetros foi plotado o lugar das raizes da planta em malha fechada, figura X.
-Com o lugar da raizes traçados, foi utilizado o \textit{sisotool} 
+Para obtenção dos parâmetros foi plotado o lugar das raizes da planta em malha fechada, figuras \ref{fig:lugar_raizes_mf} e \ref{fig:lugar_raizes_mf_aproximada}.
+Com o lugar da raizes traçados, foi utilizado o \textit{sisotool} para realizar a escolha da localização dos polos e ganho do controlador PID, com isso realizamos
+o cancelamento de polos mais instaveis, os polos localizados mais a direita do circulo unitário, e escolhemos um ganho arbritário para sair da instabilidade e obter
+uma resposta satisfatória. Por fim, implementamos o controle na planta e visualizamos que a resposta obtida na planta não condizia com o esperado visto no \textit{MatLab},
+independente da referência inserida, o carrinho não se mexia nada, consequentemente, acreditamos que o ganho do Kp estava baixo e fomos aumentando de forma empirica, 
+após diversos aumentos no Kp, o carrinho começou a se mexer. Sendo assim, a planta modelada era equivalente com o sistema em malha aberta, mas em malha fechada o comportamento
+era diferente. De forma a elucidar o ocorrido, assumimos de que a falha ocorreu devido aos coeficientes de atrito C1 e C2, portanto, aumentamos esses parâmetros, empiricamente, até
+obter uma resposta satisfatória para iniciar novamente o processo de controle mas com uma nova modelagem da planta. 
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/lugar_raizes_mf.png}    % The printed column width is 8.4 cm.
+  \caption{Lugar da raizes da malha fechada da planta. Fonte: autoral, produzida com \textit{matlab}.} 
+  \label{fig:lugar_raizes_mf}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/lugar_raizes_mf_aproximada.png}    % The printed column width is 8.4 cm.
+  \caption{Lugar da raizes da malha fechada da planta aproximada na extremidade do circulo unitário. Fonte: autoral, produzida com \textit{matlab}.} 
+  \label{fig:lugar_raizes_mf_aproximada}
+  \end{center}
+\end{figure}
 
 \subsection{Segunda tentiva} %Controle corrigido
 Sequencialmente após a correção dos parâmetros C1 e C2, de forma impirica, recalculamos o modelo obtendo as seguintes
@@ -276,15 +300,91 @@ ao segundo par de polos, para tal, o par de zeros deveria se localizar entre amb
   \end{center}
 \end{figure}
 
-Posteriormente, foi ajustado o ganho do controlador visualizando a resposta ao degrau do sistema com controlador, figura X, tendo como foco que o tempo de acomodação
+Posteriormente, foi ajustado o ganho do controlador visualizando a resposta ao degrau do sistema com controlador, tendo como foco que o tempo de acomodação
 fosse menor do que 4 segundos e principalmente que não houvesse sobressinal, pois como a planta possui uma margem de apenas 3 centimetros, sendo que nos 3 centimetros
-possui uma chave fim de curso em que corta a alimentação do motor, o sobressinal atrapalha muito o controle. Por fim, a equação do controlador PID obtido é representado
-pela equação X.
+possui uma chave fim de curso em que corta a alimentação do motor, o sobressinal atrapalha muito o controle, a reposta ao degrau obtida é representada pela curva 'Modelado' na figura \ref{fig:comparacao_mf_controle_step}.
+Por fim, a equação do controlador PID obtido está explicitada na equação \ref{eq:controlador}.
 
-%Falar agora do controle via lugar das raizes, foco em não ter sobressinal e estabilização em menos de 4s e falar dos parâmetro obtidos
+\begin{equation}
+  C = \frac{0,27951(z^2 - 1,994z + 0,9948)}{(z-1)}
+  \label{eq:controlador}
+\end{equation}
+
+% Retirei essa figura para poder diminuir no espaço, uma vez q essa curva está dentro de outro gráfico
+%\begin{figure}[!htb]
+%  \begin{center}
+%  \includegraphics[width=8.4cm]{figures/resposta_degrau_controlador_final.png}    % The printed column width is 8.4 cm.
+%  \caption{Resposta ao degrau da malha fechada da planta atualizada com controlador PID. Fonte: autoral, produzida com \textit{matlab}.} 
+%  \label{fig:resposta_degrau_mf_atualizado_controlador}
+%  \end{center}
+%\end{figure}
+
+No final, o controlador foi implementado e aplicado um degrau unitário na planta com o objetivo de comparar o resultado real com o esperado
+pela modelagem, essa comparação é representada pela figura \ref{fig:comparacao_mf_controle_step}.
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/comparacao_mf_controle_step.png}    % The printed column width is 8.4 cm.
+  \caption{Comparação da resposta ao degrau em MF da planta em relação ao modelo, com controlador PID. Fonte: autoral, produzida com \textit{matlab}.} 
+  \label{fig:comparacao_mf_controle_step}
+  \end{center}
+\end{figure}
+
+Nessa comparação é possível perceber uma dinâmica aproximada entre os modelos, todavia, há algumas divergências nas amplitudes do movimento do período transitório
+e demora para estabilização no regime permanente.  
 
 \section{Resultados experimentais em malha fechada}
 
+Essa seção testa o controle obtido em diversas situações e entradas diferentes na planta.
+
+% Coloquei esse gráfico dentro da parte de controle comparando com o modelo
+%\begin{figure}[!htb]
+%  \begin{center}
+%  \includegraphics[width=8.4cm]{figures/resultado_teste4.png}    % The printed column width is 8.4 cm.
+%  \caption{Resposta ao degrau unitário da planta, carro 1 e 2 com 4 pesos. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+%  \label{fig:teste_step1_c1_4p_c2_4p}
+%  \end{center}
+%\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/resultado_teste1.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta ao degrau unitário da planta, carro 1 com 1 peso e carro 2 com 4 pesos. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+  \label{fig:teste_step1_c1_1p_c2_4p}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/resultado_teste2.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta ao degrau unitário da planta, carro 1 e 2 com 1 peso. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+  \label{fig:teste_step1_c1_1p_c2_1p}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/resultado_teste3.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta ao degrau unitário da planta, carro 1 e 2 com nenhum peso. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+  \label{fig:teste_step1_c1_0p_c2_0p}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/resultado_teste5.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta a rampa com inclinação de 0,5cm/s e saturação em 2cm, carro 1 e 2 com 4 pesos. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+  \label{fig:teste_ramp1_c1_4p_c2_4p}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/resultado_teste6.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta a senoide com amplitude de 2cm e frequencia de 1 Hz, carro 1 e 2 com 4 pesos. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+  \label{fig:teste_sin1_c1_4p_c2_4p}
+  \end{center}
+\end{figure}
 
 \section{Conclusão}
 
