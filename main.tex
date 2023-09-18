@@ -220,12 +220,13 @@ Para obtenção dos parâmetros foi plotado o lugar das raizes da planta em malh
 Com o lugar da raizes traçados, foi utilizado o \textit{sisotool} 
 
 \subsection{Segunda tentiva} %Controle corrigido
-Sequencialmente após a correção dos parâmetros C1 e C2, de forma impirica, obtendo as seguintes
+Sequencialmente após a correção dos parâmetros C1 e C2, de forma impirica, recalculamos o modelo obtendo as seguintes
 matrizes do espaço de estados:
+
 Posteriormente foi realizado um novo estudo sobre o lugar das raizes em malha fechada, figura \ref{fig:lugar_raizes_mf_atualizada}, em que
-aproximando para próximo da origem temos a figura \ref{fig:lugar_raizes_mf_atualizada_zoom}. 
+aproximando para próximo da extremidade do circulo unitário temos a figura \ref{fig:lugar_raizes_mf_atualizada_zoom}. 
 Em que é possível perceber que a caracteristica da resposta do modelo é fortemente marcada por dois pares de polos conjugados
-próximos a origem levando para a instabilidade do sistema, como mostra a resposta ao degrau do sistema, figura \ref{fig:resposta_Degrau_mf_atualizada}.
+próximos a extremidade do circulo unitário levando para a instabilidade do sistema, como mostra a resposta ao degrau do sistema, figura \ref{fig:resposta_Degrau_mf_atualizada}.
 
 \begin{figure}[!htb]
   \begin{center}
@@ -238,7 +239,7 @@ próximos a origem levando para a instabilidade do sistema, como mostra a respos
 \begin{figure}[!htb]
   \begin{center}
   \includegraphics[width=8.4cm]{figures/lugar_raizes_mf_corrigida_aproximada.png}    % The printed column width is 8.4 cm.
-  \caption{Lugar da raizes da malha fechada da planta atualizada aproximada na origem. Fonte: autoral, produzida com \textit{matlab}.} 
+  \caption{Lugar da raizes da malha fechada da planta atualizada aproximada na extremidade do circulo unitário. Fonte: autoral, produzida com \textit{matlab}.} 
   \label{fig:lugar_raizes_mf_atualizada_zoom}
   \end{center}
 \end{figure}
@@ -246,10 +247,39 @@ próximos a origem levando para a instabilidade do sistema, como mostra a respos
 \begin{figure}[!htb]
   \begin{center}
   \includegraphics[width=8.4cm]{figures/resposta_degrau_mf_atualizado.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta ao degrau da planta atualizada. Fonte: autoral, produzida com \textit{matlab}.} 
+  \caption{Resposta ao degrau da planta atualizada, sem controlador, indo para a instabilidade. Fonte: autoral, produzida com \textit{matlab}.} 
   \label{fig:resposta_Degrau_mf_atualizada}
   \end{center}
 \end{figure}
+
+Com isso, foi inserido o integrador e um par de zeros conjugados, controlador PID, próximo ao par de polos conjugados mais a direita do circulo unitário com 
+a finalidade de atraí-los para dentro do circulo unitário, estabilizando o sistema e melhorando a margem de ganho. Nesse processo visualizamos
+que o integrador colocado fazia com que o lugar das raizes do segundo par de polos conjugados da planta direcionasse para a instabilidade, portanto,
+procuramos alocar o par de zeros conjugados de forma a garantir a não instabilidade do primeiro par de polos e de aumentar a margem de ganho em relação
+ao segundo par de polos, para tal, o par de zeros deveria se localizar entre ambos os polos, mas mais próximo do primeiro. O lugar das raizes do controlador
+é explicitado pelas figuras \ref{fig:lugar_raizes_mf_atualizada_controlador} e \ref{fig:lugar_raizes_mf_atualizada_controlador_zoom}. 
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/lugar_raizes_controlador_finalpng.png}    % The printed column width is 8.4 cm.
+  \caption{Lugar da raizes da malha fechada da planta atualizada com controlador PID. Fonte: autoral, produzida com \textit{matlab}.} 
+  \label{fig:lugar_raizes_mf_atualizada_controlador}
+  \end{center}
+\end{figure}
+
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/lugar_raizes_controlador_finalpng.png}    % The printed column width is 8.4 cm.
+  \caption{Lugar da raizes da malha fechada da planta atualizada com controlador PID aproximada na extremidade do circulo unitário. Fonte: autoral, produzida com \textit{matlab}.} 
+  \label{fig:lugar_raizes_mf_atualizada_controlador_zoom}
+  \end{center}
+\end{figure}
+
+Posteriormente, foi ajustado o ganho do controlador visualizando a resposta ao degrau do sistema com controlador, figura X, tendo como foco que o tempo de acomodação
+fosse menor do que 4 segundos e principalmente que não houvesse sobressinal, pois como a planta possui uma margem de apenas 3 centimetros, sendo que nos 3 centimetros
+possui uma chave fim de curso em que corta a alimentação do motor, o sobressinal atrapalha muito o controle. Por fim, a equação do controlador PID obtido é representado
+pela equação X.
 
 %Falar agora do controle via lugar das raizes, foco em não ter sobressinal e estabilização em menos de 4s e falar dos parâmetro obtidos
 
