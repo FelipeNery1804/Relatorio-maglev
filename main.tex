@@ -14,9 +14,9 @@
 \title{Grupo 3 - Módulo 1 - Massa Mola} 
 % Title, preferably not more than 10 words.
 
-\thanks[footnoteinfo]{Sponsor and financial support acknowledgment
-goes here. Paper titles should be written in uppercase and lowercase
-letters, not all uppercase.}
+%\thanks[footnoteinfo]{Sponsor and financial support acknowledgment
+%goes here. Paper titles should be written in uppercase and lowercase
+%letters, not all uppercase.}
 
 \author[First]{Felipe Nery Barcelos Araújo (2020021190)} 
 \author[First]{Gustavo Vieira Barbosa (2020021352)} 
@@ -50,7 +50,23 @@ Os sistemas massa-mola são capazes de representar uma ampla gama de fenômenos
 físicos e engenharia. De forma a desempenhar um papel fundamental na modelagem 
 desses fenômenos e sistemas mecânicos complexos, tais como: suspensões veiculares, 
 sistemas de suspensão de edifícios, sistemas biomecânicos e muitos outros o sistema 
-massa-mola representa com elevada exatidão.
+massa-mola representa com elevada exatidão. Afinal, com uma modelagem precisa, o sistema
+é capaz de realizar controle garantindo o desempenho e a estabilidade desejada.
+
+Ao longo desse relatório será visto um estudo focado no controle de um sistema de massa-mola 
+composto por duas massas interconectadas por duas molas, como mostra a figura \ref{fig:planta_padrao}, um problema
+clássico de controle de sistemas dinâmicos. 
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/planta_padrao.jpg}    % The printed column width is 8.4 cm.
+  \caption{Figura da planta real estudada, composta por duas molas de diferentes coeficientes e massas de 500 gramas cada. Fonte: Autoral} 
+  \label{fig:planta_padrao}
+  \end{center}
+\end{figure}
+
+Com isso, nas seções subsequentes, exploraremos em detalhes a modelagem matemática do sistema
+massa-mola, bem como o fundamento do controle utilizado e demonstrações práticas.
 
 \section{Descrição da planta e especificação do desempenho desejado}
 
@@ -74,7 +90,47 @@ Modelo 3
 
 \section{Projeto do controlador}
 
-Controle credo kkkkkkkkkk
+A principio, buscamos realizar o controlador proporcional, integrativo e derivativo (PID), 
+por garantir erro nulo para entrada em degrau e por ser amplamente difundido nas industrias
+e sistemas de controle em geral. A seguir será explicitado as tentativas para obter esse controlador.
+
+\subsection{Primeira tentativa} %Falha obtida
+Para obtenção dos parâmetros foi plotado o lugar das raizes da planta em malha fechada, figura X.
+Com o lugar da raizes traçados, foi utilizado o \textit{sisotool} 
+
+\subsection{Segunda tentiva} %Controle corrigido
+Sequencialmente após a correção dos parâmetros C1 e C2, de forma impirica, obtendo as seguintes
+matrizes do espaço de estados:
+Posteriormente foi realizado um novo estudo sobre o lugar das raizes em malha fechada, figura \ref{fig:lugar_raizes_mf_atualizada}, em que
+aproximando para próximo da origem temos a figura \ref{fig:lugar_raizes_mf_atualizada_zoom}. 
+Em que é possível perceber que a caracteristica da resposta do modelo é fortemente marcada por dois pares de polos conjugados
+próximos a origem levando para a instabilidade do sistema, como mostra a resposta ao degrau do sistema, figura \ref{fig:resposta_Degrau_mf_atualizada}.
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/lugar_raizes_mf_corrigida.png}    % The printed column width is 8.4 cm.
+  \caption{Lugar da raizes da malha fechada da planta atualizada. Fonte: autoral, produzida com \textit{matlab}.} 
+  \label{fig:lugar_raizes_mf_atualizada}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/lugar_raizes_mf_corrigida_aproximada.png}    % The printed column width is 8.4 cm.
+  \caption{Lugar da raizes da malha fechada da planta atualizada aproximada na origem. Fonte: autoral, produzida com \textit{matlab}.} 
+  \label{fig:lugar_raizes_mf_atualizada_zoom}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/resposta_degrau_mf_atualizado.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta ao degrau da planta atualizada. Fonte: autoral, produzida com \textit{matlab}.} 
+  \label{fig:resposta_Degrau_mf_atualizada}
+  \end{center}
+\end{figure}
+
+%Falar agora do controle via lugar das raizes, foco em não ter sobressinal e estabilização em menos de 4s e falar dos parâmetro obtidos
 
 \section{Resultados experimentais em malha fechada}
 

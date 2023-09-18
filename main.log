@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.5)  12 SEP 2023 14:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.22)  17 SEP 2023 23:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/gusta/Desktop/Relatório 1 - Controle/Relatorio-massa-mola-Lab.-Controle-e-Automacao/main.tex"
-(c:/Users/gusta/Desktop/Relatório 1 - Controle/Relatorio-massa-mola-Lab.-Controle-e-Automacao/main.tex
+**"c:/Users/lipen/OneDrive/UFMG/PDFs Aulas UFMG/Semestre 23-2/Lab. Controle e Automação/Planta Massa e Mola/Relatório/main.tex"
+(c:/Users/lipen/OneDrive/UFMG/PDFs Aulas UFMG/Semestre 23-2/Lab. Controle e Automação/Planta Massa e Mola/Relatório/main.tex
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-29>
+L3 programming layer <2023-08-11>
 (./ifacconf.cls
 Document Class: ifacconf 2008/04/14, 3.2ModD: IFAC conferences
 
@@ -177,31 +177,52 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9.79996> on input line 14.
 \c@sv@footnote=\count287
+<figures/planta_padrao.jpg, id=1, 4015.0pt x 3011.25pt>
+File: figures/planta_padrao.jpg Graphic file (type jpg)
+<use figures/planta_padrao.jpg>
+Package pdftex.def Info: figures/planta_padrao.jpg  used on input line 62.
+(pdftex.def)             Requested size: 239.00298pt x 179.24281pt.
+ [1{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+ <./figures/planta_padrao.jpg>]
+<figures/lugar_raizes_mf_corrigida.png, id=12, 791.95876pt x 363.3575pt>
+File: figures/lugar_raizes_mf_corrigida.png Graphic file (type png)
+<use figures/lugar_raizes_mf_corrigida.png>
+Package pdftex.def Info: figures/lugar_raizes_mf_corrigida.png  used on input line 111.
+(pdftex.def)             Requested size: 239.00298pt x 109.65677pt.
+<figures/lugar_raizes_mf_corrigida_aproximada.png, id=14, 793.96625pt x 360.34625pt>
+File: figures/lugar_raizes_mf_corrigida_aproximada.png Graphic file (type png)
+<use figures/lugar_raizes_mf_corrigida_aproximada.png>
+Package pdftex.def Info: figures/lugar_raizes_mf_corrigida_aproximada.png  used on input line 119.
+(pdftex.def)             Requested size: 239.00298pt x 108.4731pt.
+<figures/resposta_degrau_mf_atualizado.png, id=15, 778.91pt x 347.79938pt>
+File: figures/resposta_degrau_mf_atualizado.png Graphic file (type png)
+<use figures/resposta_degrau_mf_atualizado.png>
+Package pdftex.def Info: figures/resposta_degrau_mf_atualizado.png  used on input line 127.
+(pdftex.def)             Requested size: 239.00298pt x 106.71814pt.
  (./main.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 9.
 
-) [1{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-] (./main.aux)
+) [2 <./figures/lugar_raizes_mf_corrigida.png> <./figures/lugar_raizes_mf_corrigida_aproximada.png> <./figures/resposta_degrau_mf_atualizado.png>] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-29>
+L3 programming layer <2023-08-11>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2246 strings out of 474933
- 32768 string characters out of 5763794
- 1927801 words of memory out of 5000000
- 23806 multiletter control sequences out of 15000+600000
+ 2282 strings out of 475989
+ 34318 string characters out of 5784898
+ 1928248 words of memory out of 5000000
+ 23531 multiletter control sequences out of 15000+600000
  563421 words of font info for 58 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 57i,8n,65p,331b,247s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (1 page, 99885 bytes).
+ 624 hyphenation exceptions out of 8191
+ 57i,8n,65p,381b,256s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (2 pages, 2840070 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
- 25 compressed objects within 1 object stream
+ 44 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
