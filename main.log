@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.22)  18 SEP 2023 14:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.22)  18 SEP 2023 14:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -176,85 +176,37 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9.79996> on input line 14.
+
+
+LaTeX Warning: Reference `First' on page 1 undefined on input line 21.
+
+
+LaTeX Warning: Reference `First' on page 1 undefined on input line 22.
+
+
+LaTeX Warning: Reference `First' on page 1 undefined on input line 23.
+
 \c@sv@footnote=\count287
-<figures/planta_padrao.jpg, id=1, 4015.0pt x 3011.25pt>
-File: figures/planta_padrao.jpg Graphic file (type jpg)
-<use figures/planta_padrao.jpg>
-Package pdftex.def Info: figures/planta_padrao.jpg  used on input line 62.
-(pdftex.def)             Requested size: 239.00298pt x 179.24281pt.
- [1{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- <./figures/planta_padrao.jpg>]
-<figures/picos_teste_1.png, id=15, 529.98pt x 432.86719pt>
-File: figures/picos_teste_1.png Graphic file (type png)
-<use figures/picos_teste_1.png>
-Package pdftex.def Info: figures/picos_teste_1.png  used on input line 130.
-(pdftex.def)             Requested size: 239.00298pt x 195.21115pt.
-<figures/picos_teste_2.png, id=17, 532.23843pt x 430.60875pt>
-File: figures/picos_teste_2.png Graphic file (type png)
-<use figures/picos_teste_2.png>
-Package pdftex.def Info: figures/picos_teste_2.png  used on input line 138.
-(pdftex.def)             Requested size: 239.00298pt x 193.36476pt.
-<figures/regressao_teste_1.png, id=18, 534.49687pt x 450.9347pt>
-File: figures/regressao_teste_1.png Graphic file (type png)
-<use figures/regressao_teste_1.png>
-Package pdftex.def Info: figures/regressao_teste_1.png  used on input line 146.
-(pdftex.def)             Requested size: 239.00298pt x 201.63892pt.
-<figures/regressao_teste_2.png, id=19, 536.0025pt x 449.42906pt>
-File: figures/regressao_teste_2.png Graphic file (type png)
-<use figures/regressao_teste_2.png>
-Package pdftex.def Info: figures/regressao_teste_2.png  used on input line 154.
-(pdftex.def)             Requested size: 239.00298pt x 200.39647pt.
- [2 <./figures/picos_teste_1.png> <./figures/picos_teste_2.png> <./figures/regressao_teste_1.png> <./figures/regressao_teste_2.png>]
-<figures/lugar_raizes_mf_corrigida.png, id=30, 791.95876pt x 363.3575pt>
-File: figures/lugar_raizes_mf_corrigida.png Graphic file (type png)
-<use figures/lugar_raizes_mf_corrigida.png>
-Package pdftex.def Info: figures/lugar_raizes_mf_corrigida.png  used on input line 233.
-(pdftex.def)             Requested size: 239.00298pt x 109.65677pt.
-<figures/lugar_raizes_mf_corrigida_aproximada.png, id=31, 793.96625pt x 360.34625pt>
-File: figures/lugar_raizes_mf_corrigida_aproximada.png Graphic file (type png)
-<use figures/lugar_raizes_mf_corrigida_aproximada.png>
-Package pdftex.def Info: figures/lugar_raizes_mf_corrigida_aproximada.png  used on input line 241.
-(pdftex.def)             Requested size: 239.00298pt x 108.4731pt.
-<figures/resposta_degrau_mf_atualizado.png, id=32, 778.91pt x 347.79938pt>
-File: figures/resposta_degrau_mf_atualizado.png Graphic file (type png)
-<use figures/resposta_degrau_mf_atualizado.png>
-Package pdftex.def Info: figures/resposta_degrau_mf_atualizado.png  used on input line 249.
-(pdftex.def)             Requested size: 239.00298pt x 106.71814pt.
-<figures/lugar_raizes_controlador_finalpng.png, id=33, 790.955pt x 350.81062pt>
-File: figures/lugar_raizes_controlador_finalpng.png Graphic file (type png)
-<use figures/lugar_raizes_controlador_finalpng.png>
-Package pdftex.def Info: figures/lugar_raizes_controlador_finalpng.png  used on input line 264.
-(pdftex.def)             Requested size: 239.00298pt x 106.0041pt.
-File: figures/lugar_raizes_controlador_finalpng.png Graphic file (type png)
-<use figures/lugar_raizes_controlador_finalpng.png>
-Package pdftex.def Info: figures/lugar_raizes_controlador_finalpng.png  used on input line 273.
-(pdftex.def)             Requested size: 239.00298pt x 106.0041pt.
- [3 <./figures/lugar_raizes_mf_corrigida.png> <./figures/lugar_raizes_mf_corrigida_aproximada.png> <./figures/resposta_degrau_mf_atualizado.png> <./figures/lugar_raizes_controlador_finalpng.png>] (./main.bbl
+LaTeX Warning: Reference `fig:planta_padrao' on page 1 undefined on input line 57.
 
-Package natbib Warning: Empty `thebibliography' environment on input line 9.
+c:/Users/lipen/OneDrive/UFMG/PDFs Aulas UFMG/Semestre 23-2/Lab. Controle e Automação/Planta Massa e Mola/Relatório/main.tex:62: I can't write on file `main.pdf'.
+(Press Enter to retry, or Control-Z to exit; default file extension is `.pdf')
+Please type another file name for output
+c:/Users/lipen/OneDrive/UFMG/PDFs Aulas UFMG/Semestre 23-2/Lab. Controle e Automação/Planta Massa e Mola/Relatório/main.tex:62: Emergency stop.
+<argument> \pdfximage 
+                      \ifnum 0\ifx \Gin@decode \@empty \else 1\fi \ifGin@int...
+l.62 ...cs[width=8.4cm]{figures/planta_padrao.jpg}
+                                                      % The printed column w...
+*** (job aborted, file error in nonstop mode)
 
-) [4
-
-] (./main.aux)
- ***********
-LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-11>
- ***********
- ) 
+ 
 Here is how much of TeX's memory you used:
- 2331 strings out of 475989
- 35963 string characters out of 5784898
- 1933248 words of memory out of 5000000
- 23580 multiletter control sequences out of 15000+600000
+ 2229 strings out of 475989
+ 32653 string characters out of 5784898
+ 1919248 words of memory out of 5000000
+ 23485 multiletter control sequences out of 15000+600000
  563421 words of font info for 58 fonts, out of 8000000 for 9000
  624 hyphenation exceptions out of 8191
- 57i,10n,65p,426b,262s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (4 pages, 3188826 bytes).
-PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 57i,7n,65p,355b,247s stack positions out of 10000i,1000n,20000p,200000b,200000s
+c:/Users/lipen/OneDrive/UFMG/PDFs Aulas UFMG/Semestre 23-2/Lab. Controle e Automação/Planta Massa e Mola/Relatório/main.tex:62:  ==> Fatal error occurred, no output PDF file produced!
