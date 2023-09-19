@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.5)  18 SEP 2023 23:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.5)  18 SEP 2023 23:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -398,29 +398,22 @@ File: figures/resultado_teste6.png Graphic file (type png)
 <use figures/resultado_teste6.png>
 Package pdftex.def Info: figures/resultado_teste6.png  used on input line 584.
 (pdftex.def)             Requested size: 239.00298pt x 111.90114pt.
- [6 <./figures/lugar_raizes_mf_corrigida_aproximada.png> <./figures/resposta_degrau_mf_atualizado.png> <./figures/lugar_raizes_controlador_finalpng.png> <./figures/lugar_raizes_controlador_final_zoom.png> <./figures/comparacao_mf_controle_step.png (PNG copy)> <./figures/resultado_teste1.png (PNG copy)>]
-Overfull \vbox (9.49715pt too high) has occurred while \output is active []
-
- (./main.bbl
-
-Package natbib Warning: Empty `thebibliography' environment on input line 9.
-
-) [7 <./figures/resultado_teste2.png (PNG copy)> <./figures/resultado_teste3.png (PNG copy)> <./figures/resultado_teste5.png (PNG copy)> <./figures/resultado_teste6.png (PNG copy)>] (./main.aux)
+ [6 <./figures/lugar_raizes_mf_corrigida_aproximada.png> <./figures/resposta_degrau_mf_atualizado.png> <./figures/lugar_raizes_controlador_finalpng.png> <./figures/lugar_raizes_controlador_final_zoom.png> <./figures/comparacao_mf_controle_step.png (PNG copy)> <./figures/resultado_teste1.png (PNG copy)>] [7 <./figures/resultado_teste2.png (PNG copy)> <./figures/resultado_teste3.png (PNG copy)> <./figures/resultado_teste5.png (PNG copy)> <./figures/resultado_teste6.png (PNG copy)>] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3743 strings out of 474933
- 60184 string characters out of 5763794
+ 3734 strings out of 474933
+ 60082 string characters out of 5763794
  1944801 words of memory out of 5000000
- 25255 multiletter control sequences out of 15000+600000
+ 25249 multiletter control sequences out of 15000+600000
  563645 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,9n,69p,1005b,269s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (7 pages, 4672423 bytes).
+Output written on main.pdf (7 pages, 4672774 bytes).
 PDF statistics:
  127 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream

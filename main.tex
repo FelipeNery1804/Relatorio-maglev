@@ -587,46 +587,19 @@ Essa seção testa o controle obtido em diversas situações e entradas diferent
   \end{center}
 \end{figure}
 
+Os testes exemplificados acima, mostram que o controle foi eficaz em sua maioria, pois foi capaz de atingir a referência para entradas de degrau unitário e conseguiu também ratrear outros tipo de entrada,
+isso mostra que apesar de simples, o controle PID é capaz de atingir requisitos específicos em uma planta e também consegue estabilizar os sitemas em sua maioria por possibilitar o posicionamento de dois zeros
+e um polo dentro da planta, sendo uma opção fácil e de eficaz impementação.    
+
 \section{Conclusão}
 
 Por fim, vale ressaltar que o projeto envolveu o estudo da modelagem e controle de uma planta linear e serviu de base para o estudo prático das teorias de controle estudadas ao longo de disciplinas de semestres anteriores. A modelagem envolveu o uso de uma abordagem fenomenológica para a decomposição das forças do sistema e a partir disso os parâmetros da planta foram encontrados com a realização de testes envolvendo a troca de molas, pesos e a fixação dos carrinhos. Depois de modelar o sistema, foi desenvolvido um controlador com base no método do lugar das raízes com o \textit{software} \textit{Matlab} e com isso os parâmetros da resposta foram aprimorados para maior confiabilidade do modelo. Com isso, os parâmetros do PID foram implementados de forma discreta no controlador do sistema massa mola e diversos testes com entradas diferentes foram feitos.  
 
+\section{Referências}
 
-\bibliography{ifacconf}             % bib file to produce the bibliography
-                                                     % with bibtex (preferred)
-                                                   
-%\begin{thebibliography}{xx}  % you can also add the bibliography by hand
+\begin{itemize}
+  \item Notas de aula
+  \item Manual da planta
+\end{itemize}
 
-%\bibitem[Able(1956)]{Abl:56}
-%B.C. Able.
-%\newblock Nucleic acid content of microscope.
-%\newblock \emph{Nature}, 135:\penalty0 7--9, 1956.
-
-%\bibitem[Able et~al.(1954)Able, Tagg, and Rush]{AbTaRu:54}
-%B.C. Able, R.A. Tagg, and M.~Rush.
-%\newblock Enzyme-catalyzed cellular transanimations.
-%\newblock In A.F. Round, editor, \emph{Advances in Enzymology}, volume~2, pages
-%  125--247. Academic Press, New York, 3rd edition, 1954.
-
-%\bibitem[Keohane(1958)]{Keo:58}
-%R.~Keohane.
-%\newblock \emph{Power and Interdependence: World Politics in Transitions}.
-%\newblock Little, Brown \& Co., Boston, 1958.
-
-%\bibitem[Powers(1985)]{Pow:85}
-%T.~Powers.
-%\newblock Is there a way out?
-%\newblock \emph{Harpers}, pages 35--47, June 1985.
-
-%\bibitem[Soukhanov(1992)]{Heritage:92}
-%A.~H. Soukhanov, editor.
-%\newblock \emph{{The American Heritage. Dictionary of the American Language}}.
-%\newblock Houghton Mifflin Company, 1992.
-
-%\end{thebibliography}
-
-\appendix
-\section{A summary of Latin grammar}    % Each appendix must have a short title.
-\section{Some Latin vocabulary}              % Sections and subsections are supported  
-                                                                         % in the appendices.
 \end{document}
