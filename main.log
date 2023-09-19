@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.9.18)  18 SEP 2023 23:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.9.18)  18 SEP 2023 23:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -135,14 +135,7 @@ LaTeX Info: Redefining \cite on input line 694.
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count280
 \l__pdf_internal_box=\box56
-) (main.aux
-
-LaTeX Warning: Label `fig:picos_teste_3' multiply defined.
-
-
-LaTeX Warning: Label `fig:regressao_teste_4' multiply defined.
-
-)
+) (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -197,16 +190,16 @@ File: figures/picos_teste_1.png Graphic file (type png)
 <use figures/picos_teste_1.png>
 Package pdftex.def Info: figures/picos_teste_1.png  used on input line 143.
 (pdftex.def)             Requested size: 239.00298pt x 195.21115pt.
-<figures/picos_teste_2.png, id=16, 532.23843pt x 430.60875pt>
-File: figures/picos_teste_2.png Graphic file (type png)
-<use figures/picos_teste_2.png>
-Package pdftex.def Info: figures/picos_teste_2.png  used on input line 151.
-(pdftex.def)             Requested size: 239.00298pt x 193.36476pt.
-<figures/regressao_teste_1.png, id=17, 534.49687pt x 450.9347pt>
+<figures/regressao_teste_1.png, id=16, 534.49687pt x 450.9347pt>
 File: figures/regressao_teste_1.png Graphic file (type png)
 <use figures/regressao_teste_1.png>
-Package pdftex.def Info: figures/regressao_teste_1.png  used on input line 159.
+Package pdftex.def Info: figures/regressao_teste_1.png  used on input line 151.
 (pdftex.def)             Requested size: 239.00298pt x 201.63892pt.
+<figures/picos_teste_2.png, id=17, 532.23843pt x 430.60875pt>
+File: figures/picos_teste_2.png Graphic file (type png)
+<use figures/picos_teste_2.png>
+Package pdftex.def Info: figures/picos_teste_2.png  used on input line 159.
+(pdftex.def)             Requested size: 239.00298pt x 193.36476pt.
 <figures/regressao_teste_2.png, id=18, 536.0025pt x 449.42906pt>
 File: figures/regressao_teste_2.png Graphic file (type png)
 <use figures/regressao_teste_2.png>
@@ -216,13 +209,7 @@ Package pdftex.def Info: figures/regressao_teste_2.png  used on input line 167.
 
 LaTeX Warning: Text page 2 contains only floats.
 
-[2 <./figures/picos_teste_1.png> <./figures/picos_teste_2.png> <./figures/regressao_teste_1.png> <./figures/regressao_teste_2.png>]
-
-LaTeX Warning: Reference `fig:regressao_teste_3' on page 3 undefined on input line 224.
-
-
-LaTeX Warning: Reference `fig:picos_teste_4' on page 3 undefined on input line 224.
-
+[2 <./figures/picos_teste_1.png> <./figures/regressao_teste_1.png> <./figures/picos_teste_2.png> <./figures/regressao_teste_2.png>]
 <figures/picos_teste_3.png, id=29, 533.74406pt x 437.38406pt>
 File: figures/picos_teste_3.png Graphic file (type png)
 <use figures/picos_teste_3.png>
@@ -241,6 +228,7 @@ File: figures/regressao_teste_4.png Graphic file (type png)
 <use figures/regressao_teste_4.png>
 Package pdftex.def Info: figures/regressao_teste_4.png  used on input line 252.
 (pdftex.def)             Requested size: 239.00298pt x 197.88847pt.
+
 
 LaTeX Warning: Reference `eq:sistema2' on page 3 undefined on input line 275.
 
@@ -329,20 +317,17 @@ L3 programming layer <2023-08-29>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
  2421 strings out of 475248
  39602 string characters out of 5757341
- 1935801 words of memory out of 5000000
+ 1936801 words of memory out of 5000000
  23956 multiletter control sequences out of 15000+600000
  563421 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,10n,65p,348b,260s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Mateus/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (6 pages, 3752838 bytes).
+Output written on main.pdf (6 pages, 3752812 bytes).
 PDF statistics:
  108 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
