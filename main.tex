@@ -80,7 +80,7 @@ tempo de acomodação menor do que 4 segundos e sobressinal até 20\%.
 \subsection{Modelagem matemática}
 
 Após a definição do sistema em espaço de estados, deve-se encontrar os parâmetros
-k1, k2, c1, c2, m1 e m2. Para isso, analisa-se um sistema simples com um carro e uma mola,
+$k1$, $k2$, $c1$, $c2$, $m1$ e $m2$. Para isso, analisa-se um sistema simples com um carro, um coeficiente de atrito e uma mola,
 cuja equação característica é representada por:
 \begin{equation}
   s^2 + \frac{c}{m}s + \frac{k}{m} = 0
@@ -100,12 +100,18 @@ Comparando os termos de ambas equações, tem-se:
   \label{eq:termo2}
   \frac{k}{m} = \omega_n^2
 \end{equation}
-Sendo assim, tem-se duas equações e três variáveis. Portanto, foram realizados quatro testes com duas diferentes partes da planta.
-O primeiro teste consistiu na aplicação de um degrau de 2,5 cm
-no sistema com a mola $k1$ e o carro $m1$ com adição de 2 kg de massa. O segundo teste consistiu na
-aplicação desse mesmo degrau, mas sem massa adicional no carro. Dessa forma, na saídas de ambos os testes,
-verifica-se o amortecimento e a frequencia natural, seguindo as equações \ref{eq:termo1} e \ref{eq:termo2}.
-Tem-se, portanto, o seguinte sistema de equações:
+Sendo assim, tem-se duas equações e três variáveis. Portanto, foram realizados quatro testes aplicados a duas diferentes partes da planta.
+Dois testes são realizados com a mola $k1$ e o carro de massa $m1$, onde o primeiro teste consistiu na aplicação de um degrau de 2,5 cm
+na entrada, com uma massa adicional de 2 kg sobre o carro. O segundo, por sua vez, consistiu na aplicação do mesmo degrau, mas sem a massa
+adicional sobre o carro. Do primeiro teste, obtém-se $\omega_{n1}$ e $\zeta_1$, já do segundo, obtém-se $\omega_{n2}$ e $\zeta_2$.
+O mesmos testes são realizados sobre a mola $k_2$ conectado ao carro de massa $m_2$ a fim de obter $\omega_{n3}$, $\zeta_3$ $\omega_{n4}$ e $\zeta_4$.
+Pelas respostas ao degrau, a frequência natural pode ser encontrada calculando o período entre dos picos, o que se torna muito fácil com ajuda de uma calculadora.
+O amortecimento pode ser encontrado analisando através da função $findpeaks$ do $MATLAB$ aplicado à resposta. Como as amplitudes dos picos caem exponencialmente através da relação
+$e^{-\omega_n \zeta}$, seus valores foram submetidos a uma linearização através de um logaritmo
+natural. O resultado da linearização é uma função de primeira ordem, onde o coeficiente angular é igual a $-\omega_n \zeta$.
+Portanto, é possível obter o coeficiente de amortecimento através da frequência natural.
+Com os valores do coeficiente de amortecimento e da frequência natural em mãos, o seguinte sistema de equações
+pode ser resolvido para calcular os parâmetros dos testes 1 e 2, que foram submetidos na primeira parte da planta:
 \begin{equation}
   \label{eq:sistema1}
   \left\{
@@ -114,12 +120,22 @@ Tem-se, portanto, o seguinte sistema de equações:
   \frac{k_1}{m_1 + 2} = \omega_{n1}^2 \\
   \frac{k_1}{m_1} = \omega_{n2}^2
 \end{array}
-\right.
+\right. 
 \end{equation}
-Calcula-se, a frequência natural e o amortecimento dos testes 1 e 2 utilizando analisando a resposta ao degrau, juntamente
-da função $findpeaks$ do MATLAB. Para o amortecimento, as amplitudes dos picos caem exponencialmente através da relação
-$e^{\omega_n \zeta}$. Sendo assim, os valores dessas foram submetidos a uma linearização através de um logaritmo
-natural. O resultado da linearização é uma função de primeira ordem, onde o coeficiente angular é igual a $\omega_n \zeta$.
+Os testes 3 e 4 foram submetidos na segunda parte da planta e, da mesma forma, que os testes 1 e 2, resultam no seguinte
+sistema de equações:
+\begin{equation}
+  \label{eq:sistema21}
+  \left\{
+\begin{array}{lr}
+  \frac{c_2}{m_2 + 2} = 2\omega_{n3} \zeta_3 \\
+  \frac{k_2}{m_2 + 2} = \omega_{n3}^2 \\
+  \frac{k_2}{m_2} = \omega_{n4}^2
+\end{array}
+\right. 
+\end{equation}
+
+\subsection{Testes 1 e 2}
 Os gráficos das respostas ao degrau dos testes 1 e 2 estão presentes nas figuras \ref{fig:picos_teste_1} e \ref{fig:picos_teste_2}.
 Os gráficos das amplitudes linearizadas sobre o tempo estão presentes nas figuras \ref{fig:regressao_teste_1} e \ref{fig:regressao_teste_2}.
 \begin{figure}[!htb]
@@ -163,7 +179,7 @@ O resultado da regressão linear da figura \ref{fig:regressao_teste_1} permite d
 \begin{equation}
   0,6032 = \omega_{n1} \zeta_1  \rightarrow  \zeta_1 = \frac{0,6032}{\omega_{n1}} = 0,0569
 \end{equation}
-O mesmo procedimento foi feito com os resultados do teste 2, presentes nas figuras \ref{fig:picos_teste_2} e \ref{fig:regressao_teste_2}.
+O mesmo procedimento foi feito com os resultados do teste 2, cujo resultados estão presentes nas figuras \ref{fig:picos_teste_2} e \ref{fig:regressao_teste_2}.
 \begin{equation}
   \omega_{n2} = 19,6965
 \end{equation}
@@ -195,17 +211,104 @@ Com os valores de $\omega_{n1}, \omega_{n2}, \zeta_1$ e $\zeta_2$ em mãos, é p
 \begin{equation}
   \left\{
 \begin{array}{lr}
-  m_1 = 0,8145 \\
-  c_1 = 3,3954 \\
-  k_1 = 315,9872
+  m_1 = 0,92 kg \\
+  c_1 = 2,143 Ns/m \\
+  k_1 = 356,5  N/m
+\end{array}
+\right.
+\end{equation}
+\subsection{Testes 3 e 4}
+
+Após a aplicação do degrau de 2,5 cm ao sistema, a saída foi obtida e está presente na figura \ref{fig:picos_teste_3}.
+Além disso, houve a linearização e regressão da amplitude dos picos da resposta ao degrau, assim como descrito nos testes anteriores,
+e está presente na figura \ref{fig:regressao_teste_3}. Para o teste 4, a resposta ao degrau está presente na figura \ref{fig:picos_teste_4}
+e a linearização dos picos juntamente da regressão linear está presente na figura \ref{fig:regressao_teste_4}.
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/picos_teste_3.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta ao degrau do teste 3. Fonte: Autoral.} 
+  \label{fig:picos_teste_3}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/picos_teste_3.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta ao degrau do teste 3. Fonte: Autoral.} 
+  \label{fig:picos_teste_3}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/regressao_teste_4.png}    % The printed column width is 8.4 cm.
+  \caption{Amplitudes linearizadas do teste 4. Fonte: Autoral.} 
+  \label{fig:regressao_teste_4}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/regressao_teste_4.png}    % The printed column width is 8.4 cm.
+  \caption{Amplitudes linearizadas do teste 4. Fonte: Autoral.} 
+  \label{fig:regressao_teste_4}
+  \end{center}
+\end{figure}
+Portanto, através da resposta ao degrau, obtém-se uma frequência natural de:
+\begin{equation}
+    \omega_{n3} = 11,1010
+\end{equation}
+Pela regressão linear, pode-se dizer que:
+\begin{equation}
+    \omega_{n3} \zeta_3 = 0,6515 \rightarrow \zeta_3 = \frac{0,6515}{\omega_{n3}} = 0,0587
+\end{equation}
+
+Realizando o mesmo procedimento para o teste 4, tem-se:
+\begin{equation}
+    \omega_{n4} = 33,7806
+\end{equation}
+Pela regressão linear, pode-se dizer que:
+\begin{equation}
+    \omega_{n4} \zeta_4 = 1,321 \rightarrow \zeta_4 = \frac{1,321}{\omega_{n4}} = 0,0391
+\end{equation}
+
+Aplicando os valores de frequência natural e amortecimento dos testes 3 e 4 ao sistema de equações \ref{eq:sistema2}, tem-se:
+
+\begin{equation}
+  \left\{
+\begin{array}{lr}
+  \frac{c_2}{m_2 + 2} = 2\omega_{n3} \zeta_3 \\
+  \frac{k_1}{m_2 + 2} = \omega_{n3}^2 \\
+  \frac{k_2}{m_2} = \omega_{n4}^2
 \end{array}
 \right.
 \end{equation}
 
+\begin{equation}
+  \left\{
+\begin{array}{lr}
+  \frac{c_2}{m_2 + 2} = 2 \cdot 11,1010 \cdot 0,0587 \\
+  \frac{k_2}{m_2 + 2} = 11,1010^2 \\
+  \frac{k_2}{m_2} = 33,7806^2
+\end{array}
+\right.
+\end{equation}
+
+\begin{equation}
+  \left\{
+\begin{array}{lr}
+  m_2 = 0,896 kg \\
+  c_2 = 3,774 Ns/m \\
+  k_2 = 1022,45 N/m
+\end{array}
+\right.
+\end{equation}
 
 \subsection{Validação do modelo}
 
-Modelo 3
+Foi realizada a aplicação de uma entrada em degrau de tensão na planta em malha aberta, onde a sua resposta
+foi comparada com a resposta ao degrau da planta simulada pelo $MATLAB$. Ambas as reposta apresentaram semelhanças,
+o que é um bom sinal, haja vista as dificuldades enfrentadas até aqui.
 
 \section{Projeto do controlador}
 
