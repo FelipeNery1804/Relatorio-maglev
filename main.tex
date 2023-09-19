@@ -7,6 +7,7 @@
 
 \usepackage{graphicx}      % include this line if your document contains figures
 \usepackage{natbib}        % required for bibliography
+\usepackage{amsmath}
 %===============================================================================
 \begin{document}
 \begin{frontmatter}
@@ -29,10 +30,8 @@
 
 %Escrever um resumo do documento aqui, não pode ultrapassar 250 palavras
 \begin{abstract}               
-These instructions give you guidelines for preparing papers for IFAC
-technical meetings. Please use this document as a template to prepare
-your manuscript. For submission guidelines, follow instructions on
-paper submission system as well as the event website.
+Relatório do controle de posição de um sistema massa mola com dois graus de liberdade, com molas de diferentes coeficientes 
+elásticos.
 \end{abstract}
 
 %Escrever até 5 palavras chave do relatório aqui
@@ -72,12 +71,116 @@ massa-mola, bem como o fundamento do controle utilizado e demonstrações práti
 
 O controle a ser realizado visa, inicialmente, controlar a posição do segundo carrinho bem como tornar o sistema estável, erro nulo para entrada de degrau, 
 tempo de acomodação menor do que 4 segundos e sobressinal até 20\%.
+A planta a ser estudada envolve dois carrinhos de massas aproximadamente iguais, com duas molas de constantes elásticas diferentes, uma presa ao carrinho 1 
+e a uma extremidade fixa e outra entre ambos os carrinhos. O sistema possui dois graus de liberdade e o interesse do projeto é em controlar a posição do carrinho 2.
+
 
 \section{Modelagem matemática e validação do modelo}
 
 
 
 \subsection{Modelagem matemática}
+
+Para obter o modelo da planta a ser controlada foi utilizada uma abordagem fenomenológica com decomposição das forças por meio da Mecânica Newtoniana. A imagem abaixo mostra um esquema da planta com os carrinhos, as molas entre eles e a superfície sólida na extremidade.
+
+\begin{figure}[!htb]
+    \begin{center}
+    \includegraphics[width=8.4cm]{figures/Desenho_planta.png}    % The printed column width is 8.4 cm.
+    \caption{Esquema planta a ser estudada com os carrinhos, molas e amortecmento envolvidos. Fonte: Autoral} 
+    \label{fig:Desenho_planta}
+    \end{center}
+  \end{figure}
+
+À partir desse modelo, foi realizada uma decomposição de forças para posterior obtenção do modelo em espaço de estados do sistema. Considerou-se uma força $F(t)$ exercida no carrinho 1 e por meio dela se obteve uma reação contrária das molas e do amortecedor como representado pelo esquema abaixo.
+
+\begin{figure}[!htb]
+    \begin{center}
+    \includegraphics[width=8.4cm]{figures/Desenho_forças.png}    % The printed column width is 8.4 cm.
+    \caption{Decomposição das forças para obtenção das equações. Fonte: Autoral} 
+    \label{fig:Desenho_forças}
+    \end{center}
+  \end{figure}
+
+Com a decomposição das forças como mostrado na figura \ref{fig:Desenho_forças} foi feita uma soma vetorial nos corpos para obter a dinâmica da planta para os carrinhos.
+
+\begin{equation}
+    \label{eq:planta 1}
+    F(t) - c_{1}\dot{d_{1}} - k_{1}(d_{1}-d_{2}) = m_{1}\ddot{d_{1}}
+\end{equation}
+
+\begin{equation}
+    \label{eq:planta 2}
+    - c_{2}\dot{d_{2}} - k_{1}(d_{2}-d_{1}) - k_{2}d_{2} = m_{2}\ddot{d_{2}}
+\end{equation}
+
+Para encontar o modelo em espaço de estados, foi preciso primeiramente escolher os estados da planta. Nesse caso foram considerados $d_{1}$, $\dot{d_{1}}$, $d_{2}$, $\dot{d_{2}}$, como $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$ respectivamente. Com isso, chegou-se ao modelo da planta em espaço de estados.
+
+\begin{equation}
+    \begin{bmatrix}
+        \dot{x_{1}} \\
+        \dot{x_{2}} \\
+        \dot{x_{3}} \\
+        \dot{x_{4}} \\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 & 1 & 0 & 0\\
+        \frac{-(k_{1}+k_{2})}{m_{1}} & \frac{-c_{1}}{m_{1}} & \frac{k_{2}}{m_{1}} & 0\\
+        0 & 0 & 0 & 1\\
+        \frac{k_{2}}{m_{2}} & \frac{-k_{2}}{m_{2}} & 0 & \frac{-c_{2}}{m_{2}}\\
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+        x_{1} \\
+        x_{2} \\
+        x_{3} \\
+        x_{4} \\
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        0 \\
+        \frac{1}{m_{1}} \\
+        0 \\
+        0 \\
+    \end{bmatrix}
+    f(t)
+    \label{eq:Espaco de estados entrada}
+    \end{equation}
+
+    \begin{equation}
+            Y
+        =
+        \begin{bmatrix}
+            0 & 0 & 1 & 0
+        \end{bmatrix}
+        \cdot
+        \begin{bmatrix}
+            x_{1} \\
+            x_{2} \\
+            x_{3} \\
+            x_{4} \\
+        \end{bmatrix}
+        \label{eq:Espaco de estados saida}
+    \end{equation}
+        
+Nesse caso não é preciso linearizar o modelo, porque ele é linear e como mostrado pela equação \ref{eq:Espaco de estados entrada}, pode ser escrito na forma padrão do espaço de estados. Por fim, através do \textit{software} \textit{Matlab}, a planta foi discretizada com um tempo de amostragem de 0,001768 segundos para se obter uma relação mais confiável e precisa.
+
+O próximo passo da modelagem foi encontrar os valores das costantes elásticas das molas e os coeficientes de amortecimento atuando sobre cada carro. Para fazer isso quatro testes específicos foram realizados com o sistema sem a aplicação da força $F(t)$ do motor. Em todos os testes um dos carro foi fixado e o peso dentro de cada um foi variado entre cheio e vazio. A imagem abaixo ilustra um exemplo de m dos testes com a decxomposição das foraças.
+
+\begin{figure}[!htb]
+    \begin{center}
+    \includegraphics[width=8.4cm]{figures/Desenho_testes.png}    % The printed column width is 8.4 cm.
+    \caption{Exemplo da aplicação do teste para uma mola, amortecimento e massa genéricos. Fonte: Autoral} 
+    \label{fig:Desenho_testes}
+    \end{center}
+  \end{figure}
+
+Com a decomposição das forças e considerando que ao soltar os carrinhos da posição de 2,5 cm o sistema sofre uma resposta impulsiva, chega-se à equação \ref{eq:planta testes} que descreve a planta para os parâmetros de froma genérica.
+
+\begin{equation}
+    \label{eq:planta testes}
+    H(s)  = \frac{1}{ms^2+cs+k}
+\end{equation}
 
 Após a definição do sistema em espaço de estados, deve-se encontrar os parâmetros
 $k1$, $k2$, $c1$, $c2$, $m1$ e $m2$. Para isso, analisa-se um sistema simples com um carro, um coeficiente de atrito e uma mola,
@@ -233,7 +336,7 @@ e a linearização dos picos juntamente da regressão linear está presente na f
 
 \begin{figure}[!htb]
   \begin{center}
-  \includegraphics[width=8.4cm]{figures/picos_teste_3.png}    % The printed column width is 8.4 cm.
+  \includegraphics[width=8.4cm]{figures/regressao_teste_3.png}    % The printed column width is 8.4 cm.
   \caption{Amplitudes linearizadas do teste 3. Fonte: Autoral.} 
   \label{fig:regressao_teste_3}
   \end{center}
@@ -241,7 +344,7 @@ e a linearização dos picos juntamente da regressão linear está presente na f
 
 \begin{figure}[!htb]
   \begin{center}
-  \includegraphics[width=8.4cm]{figures/regressao_teste_4.png}    % The printed column width is 8.4 cm.
+  \includegraphics[width=8.4cm]{figures/picos_teste_4.png}    % The printed column width is 8.4 cm.
   \caption{Resposta ao degrau do teste 4. Fonte: Autoral.} 
   \label{fig:picos_teste_4}
   \end{center}
@@ -392,7 +495,7 @@ ao segundo par de polos, para tal, o par de zeros deveria se localizar entre amb
 
 \begin{figure}[!htb]
   \begin{center}
-  \includegraphics[width=8.4cm]{figures/lugar_raizes_controlador_finalpng.png}    % The printed column width is 8.4 cm.
+  \includegraphics[width=8.4cm]{figures/lugar_raizes_controlador_final_zoom.png}    % The printed column width is 8.4 cm.
   \caption{Lugar da raizes da malha fechada da planta atualizada com controlador PID aproximada na extremidade do circulo unitário. Fonte: autoral, produzida com \textit{matlab}.} 
   \label{fig:lugar_raizes_mf_atualizada_controlador_zoom}
   \end{center}
@@ -486,7 +589,8 @@ Essa seção testa o controle obtido em diversas situações e entradas diferent
 
 \section{Conclusão}
 
-Nery vai concluir o trabalho pra gente!
+Por fim, vale ressaltar que o projeto envolveu o estudo da modelagem e controle de uma planta linear e serviu de base para o estudo prático das teorias de controle estudadas ao longo de disciplinas de semestres anteriores. A modelagem envolveu o uso de uma abordagem fenomenológica para a decomposição das forças do sistema e a partir disso os parâmetros da planta foram encontrados com a realização de testes envolvendo a troca de molas, pesos e a fixação dos carrinhos. Depois de modelar o sistema, foi desenvolvido um controlador com base no método do lugar das raízes com o \textit{software} \textit{Matlab} e com isso os parâmetros da resposta foram aprimorados para maior confiabilidade do modelo. Com isso, os parâmetros do PID foram implementados de forma discreta no controlador do sistema massa mola e diversos testes com entradas diferentes foram feitos.  
+
 
 \bibliography{ifacconf}             % bib file to produce the bibliography
                                                      % with bibtex (preferred)
