@@ -12,7 +12,7 @@
 \begin{document}
 \begin{frontmatter}
 
-\title{Grupo 3 - Módulo 1 - Massa Mola} 
+\title{Grupo 3 - Módulo 2 - Maglev} 
 % Title, preferably not more than 10 words.
 
 %\thanks[footnoteinfo]{Sponsor and financial support acknowledgment
@@ -30,13 +30,12 @@
 
 %Escrever um resumo do documento aqui, não pode ultrapassar 250 palavras
 \begin{abstract}               
-Relatório do controle de posição de um sistema massa mola com dois graus de liberdade, com molas de diferentes coeficientes 
-elásticos.
+Relatório do controle de posição de uma massa levitada por um eletroima
 \end{abstract}
 
 %Escrever até 5 palavras chave do relatório aqui
 \begin{keyword}
-massa-mola, controle, posição
+maglev, controle, posição, levitação, eletroima
 \end{keyword}
 
 \end{frontmatter}
@@ -45,34 +44,33 @@ massa-mola, controle, posição
 
 \section{Introdução}
 
-Os sistemas massa-mola são capazes de representar uma ampla gama de fenômenos
-físicos e engenharia. De forma a desempenhar um papel fundamental na modelagem 
-desses fenômenos e sistemas mecânicos complexos, tais como: suspensões veiculares, 
-sistemas de suspensão de edifícios, sistemas biomecânicos e muitos outros o sistema 
-massa-mola representa com elevada exatidão. Afinal, com uma modelagem precisa, o sistema
-é capaz de realizar controle garantindo o desempenho e a estabilidade desejada.
+A levitação magnética, é uma tecnologia em que utiliza forças magnéticas para suspender e controlar a posição de
+objetos metálicos, como uma esfera de aço, sem a necessidade de contato físico com superfícies. Um exemplo notável dessa aplicação é a levitação de uma esfera
+de aço por meio da força magnética gerada por um eletroímã, que será abordado nesse relatório por meio da planta Maglev da \textit{Feedback}. Tal controle tem importância significativa 
+tanto na sociedade como na indústria, oferecendo uma ampla gama de benefícios, desde sistemas de transporte de alta velocidade até aplicações em pesquisa e desenvolvimento.
 
-Ao longo desse relatório será visto um estudo focado no controle de um sistema de massa-mola 
-composto por duas massas interconectadas por duas molas, como mostra a figura \ref{fig:planta_padrao}, um problema
-clássico de controle de sistemas dinâmicos. 
+Ao longo desse relatório será visto um estudo focado no controle de posição de uma esfera de aço por meio de forças magnéticas 
+gerada por um eletroímã, como mostra a figura \ref{fig:planta_padrao}, um problema
+clássico de controle de sistemas magnéticos. 
 
 \begin{figure}[!htb]
   \begin{center}
-  \includegraphics[width=8.4cm]{figures/planta_padrao.jpg}    % The printed column width is 8.4 cm.
-  \caption{Figura da planta real estudada, composta por duas molas de diferentes coeficientes e massas de 500 gramas cada. Fonte: Autoral} 
+  \includegraphics[width=6.4cm]{figures/planta_padrao.png}    % The printed column width is 8.4 cm.
+  \caption{Figura da planta real estudada, levitador magnético (Maglev). Fonte: Autoral} 
   \label{fig:planta_padrao}
   \end{center}
 \end{figure}
 
 Com isso, nas seções subsequentes, exploraremos em detalhes a modelagem matemática do sistema
-massa-mola, bem como o fundamento do controle utilizado e demonstrações práticas.
+maglev, bem como o fundamento do controle utilizado e demonstrações práticas.
 
 \section{Descrição da planta e especificação do desempenho desejado}
 
-O controle a ser realizado visa, inicialmente, controlar a posição do segundo carrinho bem como tornar o sistema estável, erro nulo para entrada de degrau, 
+O controle a ser realizado visa, inicialmente, controlar a posição de uma esfera de aço bem como tornar o sistema estável (deixando-a parada), erro nulo para entrada de degrau, 
+%CONFIRMAR ISSO DO TEMPO DE ACOMADAÇÃO E SOBRESSINAL
 tempo de acomodação menor do que 4 segundos e sobressinal até 20\%.
-A planta a ser estudada envolve dois carrinhos de massas aproximadamente iguais, com duas molas de constantes elásticas diferentes, uma presa ao carrinho 1 
-e a uma extremidade fixa e outra entre ambos os carrinhos. O sistema possui dois graus de liberdade e o interesse do projeto é em controlar a posição do carrinho 2.
+A planta a ser estudada envolve além da esfera de aço, um eletroímã, o qual irá gerar um campo magnético que
+consequentemente irá impor uma força eletromagnética sobre a esfera fazendo-a levitar com um controle preciso de posição.
 
 
 \section{Modelagem matemática e validação do modelo}

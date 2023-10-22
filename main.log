@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.5)  18 SEP 2023 23:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.22)  22 OCT 2023 17:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/gusta/Desktop/Relatório 1 - Controle/Relatorio-massa-mola-Lab.-Controle-e-Automacao/main.tex"
-(c:/Users/gusta/Desktop/Relatório 1 - Controle/Relatorio-massa-mola-Lab.-Controle-e-Automacao/main.tex
+**"c:/Users/lipen/OneDrive/UFMG/PDFs Aulas UFMG/Semestre 23-2/Lab. Controle e Automação/Planta Maglev/Relatório/Relatorio-maglev/main.tex"
+(c:/Users/lipen/OneDrive/UFMG/PDFs Aulas UFMG/Semestre 23-2/Lab. Controle e Automação/Planta Maglev/Relatório/Relatorio-maglev/main.tex
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-29>
+L3 programming layer <2023-08-11>
 (./ifacconf.cls
 Document Class: ifacconf 2008/04/14, 3.2ModD: IFAC conferences
 
@@ -262,160 +262,169 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 15.
 \c@sv@footnote=\count299
-<figures/planta_padrao.jpg, id=1, 4015.0pt x 3011.25pt>
-File: figures/planta_padrao.jpg Graphic file (type jpg)
-<use figures/planta_padrao.jpg>
-Package pdftex.def Info: figures/planta_padrao.jpg  used on input line 61.
-(pdftex.def)             Requested size: 239.00298pt x 179.24281pt.
-<figures/Desenho_planta.png, id=2, 439.6425pt x 164.41425pt>
+<figures/planta_padrao.png, id=1, 306.14375pt x 394.47375pt>
+File: figures/planta_padrao.png Graphic file (type png)
+<use figures/planta_padrao.png>
+Package pdftex.def Info: figures/planta_padrao.png  used on input line 58.
+(pdftex.def)             Requested size: 182.09746pt x 234.63353pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<figures/Desenho_planta.png, id=3, 439.6425pt x 164.41425pt>
 File: figures/Desenho_planta.png Graphic file (type png)
 <use figures/Desenho_planta.png>
-Package pdftex.def Info: figures/Desenho_planta.png  used on input line 88.
+Package pdftex.def Info: figures/Desenho_planta.png  used on input line 86.
 (pdftex.def)             Requested size: 239.00298pt x 89.37944pt.
 <figures/Desenho_forças.png, id=4, 496.85625pt x 139.11975pt>
 File: figures/Desenho_forças.png Graphic file (type png)
 <use figures/Desenho_forças.png>
-Package pdftex.def Info: figures/Desenho_forças.png  used on input line 98.
+Package pdftex.def Info: figures/Desenho_forças.png  used on input line 96.
 (pdftex.def)             Requested size: 239.00298pt x 66.92107pt.
+
+Underfull \vbox (badness 4556) has occurred while \output is active []
+
  [1{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
- <./figures/planta_padrao.jpg> <./figures/Desenho_planta.png>]
+ <./figures/planta_padrao.png>]
 <figures/Desenho_testes.png, id=17, 492.03825pt x 351.11176pt>
 File: figures/Desenho_testes.png Graphic file (type png)
 <use figures/Desenho_testes.png>
-Package pdftex.def Info: figures/Desenho_testes.png  used on input line 172.
+Package pdftex.def Info: figures/Desenho_testes.png  used on input line 170.
 (pdftex.def)             Requested size: 239.00298pt x 170.54614pt.
- [2 <./figures/Desenho_forças.png> <./figures/Desenho_testes.png>]
+ [2 <./figures/Desenho_planta.png> <./figures/Desenho_forças.png> <./figures/Desenho_testes.png>]
 <figures/picos_teste_1.png, id=28, 529.98pt x 432.86719pt>
 File: figures/picos_teste_1.png Graphic file (type png)
 <use figures/picos_teste_1.png>
-Package pdftex.def Info: figures/picos_teste_1.png  used on input line 246.
+Package pdftex.def Info: figures/picos_teste_1.png  used on input line 244.
 (pdftex.def)             Requested size: 239.00298pt x 195.21115pt.
 <figures/regressao_teste_1.png, id=29, 534.49687pt x 450.9347pt>
 File: figures/regressao_teste_1.png Graphic file (type png)
 <use figures/regressao_teste_1.png>
-Package pdftex.def Info: figures/regressao_teste_1.png  used on input line 254.
+Package pdftex.def Info: figures/regressao_teste_1.png  used on input line 252.
 (pdftex.def)             Requested size: 239.00298pt x 201.63892pt.
 <figures/picos_teste_2.png, id=30, 532.23843pt x 430.60875pt>
 File: figures/picos_teste_2.png Graphic file (type png)
 <use figures/picos_teste_2.png>
-Package pdftex.def Info: figures/picos_teste_2.png  used on input line 262.
+Package pdftex.def Info: figures/picos_teste_2.png  used on input line 260.
 (pdftex.def)             Requested size: 239.00298pt x 193.36476pt.
 <figures/regressao_teste_2.png, id=31, 536.0025pt x 449.42906pt>
 File: figures/regressao_teste_2.png Graphic file (type png)
 <use figures/regressao_teste_2.png>
-Package pdftex.def Info: figures/regressao_teste_2.png  used on input line 270.
+Package pdftex.def Info: figures/regressao_teste_2.png  used on input line 268.
 (pdftex.def)             Requested size: 239.00298pt x 200.39647pt.
 
 
 LaTeX Warning: Text page 3 contains only floats.
 
 [3 <./figures/picos_teste_1.png> <./figures/regressao_teste_1.png> <./figures/picos_teste_2.png> <./figures/regressao_teste_2.png>]
-<figures/picos_teste_3.png, id=39, 533.74406pt x 437.38406pt>
+<figures/picos_teste_3.png, id=40, 533.74406pt x 437.38406pt>
 File: figures/picos_teste_3.png Graphic file (type png)
 <use figures/picos_teste_3.png>
-Package pdftex.def Info: figures/picos_teste_3.png  used on input line 331.
+Package pdftex.def Info: figures/picos_teste_3.png  used on input line 329.
 (pdftex.def)             Requested size: 239.00298pt x 195.85327pt.
-<figures/regressao_teste_3.png, id=40, 533.74406pt x 441.90094pt>
+<figures/regressao_teste_3.png, id=41, 533.74406pt x 441.90094pt>
 File: figures/regressao_teste_3.png Graphic file (type png)
 <use figures/regressao_teste_3.png>
-Package pdftex.def Info: figures/regressao_teste_3.png  used on input line 339.
+Package pdftex.def Info: figures/regressao_teste_3.png  used on input line 337.
 (pdftex.def)             Requested size: 239.00298pt x 197.87587pt.
-<figures/picos_teste_4.png, id=41, 532.99126pt x 436.63126pt>
+<figures/picos_teste_4.png, id=42, 532.99126pt x 436.63126pt>
 File: figures/picos_teste_4.png Graphic file (type png)
 <use figures/picos_teste_4.png>
-Package pdftex.def Info: figures/picos_teste_4.png  used on input line 347.
+Package pdftex.def Info: figures/picos_teste_4.png  used on input line 345.
 (pdftex.def)             Requested size: 239.00298pt x 195.78935pt.
-<figures/regressao_teste_4.png, id=42, 538.26094pt x 445.665pt>
+<figures/regressao_teste_4.png, id=43, 538.26094pt x 445.665pt>
 File: figures/regressao_teste_4.png Graphic file (type png)
 <use figures/regressao_teste_4.png>
-Package pdftex.def Info: figures/regressao_teste_4.png  used on input line 355.
+Package pdftex.def Info: figures/regressao_teste_4.png  used on input line 353.
 (pdftex.def)             Requested size: 239.00298pt x 197.88847pt.
  [4 <./figures/picos_teste_3.png> <./figures/regressao_teste_3.png> <./figures/picos_teste_4.png> <./figures/regressao_teste_4.png>]
-<figures/lugar_raizes_mf.png, id=50, 777.40437pt x 355.82938pt>
+<figures/lugar_raizes_mf.png, id=51, 777.40437pt x 355.82938pt>
 File: figures/lugar_raizes_mf.png Graphic file (type png)
 <use figures/lugar_raizes_mf.png>
-Package pdftex.def Info: figures/lugar_raizes_mf.png  used on input line 434.
+Package pdftex.def Info: figures/lugar_raizes_mf.png  used on input line 432.
 (pdftex.def)             Requested size: 239.00298pt x 109.3938pt.
-<figures/lugar_raizes_mf_aproximada.png, id=51, 796.9775pt x 349.305pt>
+<figures/lugar_raizes_mf_aproximada.png, id=52, 796.9775pt x 349.305pt>
 File: figures/lugar_raizes_mf_aproximada.png Graphic file (type png)
 <use figures/lugar_raizes_mf_aproximada.png>
-Package pdftex.def Info: figures/lugar_raizes_mf_aproximada.png  used on input line 442.
+Package pdftex.def Info: figures/lugar_raizes_mf_aproximada.png  used on input line 440.
 (pdftex.def)             Requested size: 239.00298pt x 104.74966pt.
-<figures/lugar_raizes_mf_corrigida.png, id=52, 791.95876pt x 363.3575pt>
+<figures/lugar_raizes_mf_corrigida.png, id=53, 791.95876pt x 363.3575pt>
 File: figures/lugar_raizes_mf_corrigida.png Graphic file (type png)
 <use figures/lugar_raizes_mf_corrigida.png>
-Package pdftex.def Info: figures/lugar_raizes_mf_corrigida.png  used on input line 458.
+Package pdftex.def Info: figures/lugar_raizes_mf_corrigida.png  used on input line 456.
 (pdftex.def)             Requested size: 239.00298pt x 109.65677pt.
-<figures/lugar_raizes_mf_corrigida_aproximada.png, id=53, 793.96625pt x 360.34625pt>
+<figures/lugar_raizes_mf_corrigida_aproximada.png, id=54, 793.96625pt x 360.34625pt>
 File: figures/lugar_raizes_mf_corrigida_aproximada.png Graphic file (type png)
 <use figures/lugar_raizes_mf_corrigida_aproximada.png>
-Package pdftex.def Info: figures/lugar_raizes_mf_corrigida_aproximada.png  used on input line 466.
+Package pdftex.def Info: figures/lugar_raizes_mf_corrigida_aproximada.png  used on input line 464.
 (pdftex.def)             Requested size: 239.00298pt x 108.4731pt.
-<figures/resposta_degrau_mf_atualizado.png, id=54, 778.91pt x 347.79938pt>
+<figures/resposta_degrau_mf_atualizado.png, id=55, 778.91pt x 347.79938pt>
 File: figures/resposta_degrau_mf_atualizado.png Graphic file (type png)
 <use figures/resposta_degrau_mf_atualizado.png>
-Package pdftex.def Info: figures/resposta_degrau_mf_atualizado.png  used on input line 474.
+Package pdftex.def Info: figures/resposta_degrau_mf_atualizado.png  used on input line 472.
 (pdftex.def)             Requested size: 239.00298pt x 106.71814pt.
  [5 <./figures/lugar_raizes_mf.png> <./figures/lugar_raizes_mf_aproximada.png> <./figures/lugar_raizes_mf_corrigida.png>]
-<figures/lugar_raizes_controlador_finalpng.png, id=61, 790.955pt x 350.81062pt>
+<figures/lugar_raizes_controlador_finalpng.png, id=62, 790.955pt x 350.81062pt>
 File: figures/lugar_raizes_controlador_finalpng.png Graphic file (type png)
 <use figures/lugar_raizes_controlador_finalpng.png>
-Package pdftex.def Info: figures/lugar_raizes_controlador_finalpng.png  used on input line 489.
+Package pdftex.def Info: figures/lugar_raizes_controlador_finalpng.png  used on input line 487.
 (pdftex.def)             Requested size: 239.00298pt x 106.0041pt.
-<figures/lugar_raizes_controlador_final_zoom.png, id=62, 808.52063pt x 355.82938pt>
+<figures/lugar_raizes_controlador_final_zoom.png, id=63, 808.52063pt x 355.82938pt>
 File: figures/lugar_raizes_controlador_final_zoom.png Graphic file (type png)
 <use figures/lugar_raizes_controlador_final_zoom.png>
-Package pdftex.def Info: figures/lugar_raizes_controlador_final_zoom.png  used on input line 498.
+Package pdftex.def Info: figures/lugar_raizes_controlador_final_zoom.png  used on input line 496.
 (pdftex.def)             Requested size: 239.00298pt x 105.1805pt.
-<figures/comparacao_mf_controle_step.png, id=63, 1445.4pt x 676.77844pt>
+<figures/comparacao_mf_controle_step.png, id=64, 1445.4pt x 676.77844pt>
 File: figures/comparacao_mf_controle_step.png Graphic file (type png)
 <use figures/comparacao_mf_controle_step.png>
-Package pdftex.def Info: figures/comparacao_mf_controle_step.png  used on input line 528.
+Package pdftex.def Info: figures/comparacao_mf_controle_step.png  used on input line 526.
 (pdftex.def)             Requested size: 239.00298pt x 111.90114pt.
-<figures/resultado_teste1.png, id=64, 1445.4pt x 676.77844pt>
+<figures/resultado_teste1.png, id=65, 1445.4pt x 676.77844pt>
 File: figures/resultado_teste1.png Graphic file (type png)
 <use figures/resultado_teste1.png>
-Package pdftex.def Info: figures/resultado_teste1.png  used on input line 552.
+Package pdftex.def Info: figures/resultado_teste1.png  used on input line 550.
 (pdftex.def)             Requested size: 239.00298pt x 111.90114pt.
-<figures/resultado_teste2.png, id=65, 1445.4pt x 676.77844pt>
+<figures/resultado_teste2.png, id=66, 1445.4pt x 676.77844pt>
 File: figures/resultado_teste2.png Graphic file (type png)
 <use figures/resultado_teste2.png>
-Package pdftex.def Info: figures/resultado_teste2.png  used on input line 560.
+Package pdftex.def Info: figures/resultado_teste2.png  used on input line 558.
 (pdftex.def)             Requested size: 239.00298pt x 111.90114pt.
-<figures/resultado_teste3.png, id=66, 1445.4pt x 676.77844pt>
+<figures/resultado_teste3.png, id=67, 1445.4pt x 676.77844pt>
 File: figures/resultado_teste3.png Graphic file (type png)
 <use figures/resultado_teste3.png>
-Package pdftex.def Info: figures/resultado_teste3.png  used on input line 568.
+Package pdftex.def Info: figures/resultado_teste3.png  used on input line 566.
 (pdftex.def)             Requested size: 239.00298pt x 111.90114pt.
-<figures/resultado_teste5.png, id=67, 1445.4pt x 676.77844pt>
+<figures/resultado_teste5.png, id=68, 1445.4pt x 676.77844pt>
 File: figures/resultado_teste5.png Graphic file (type png)
 <use figures/resultado_teste5.png>
-Package pdftex.def Info: figures/resultado_teste5.png  used on input line 576.
+Package pdftex.def Info: figures/resultado_teste5.png  used on input line 574.
 (pdftex.def)             Requested size: 239.00298pt x 111.90114pt.
-<figures/resultado_teste6.png, id=68, 1445.4pt x 676.77844pt>
+<figures/resultado_teste6.png, id=69, 1445.4pt x 676.77844pt>
 File: figures/resultado_teste6.png Graphic file (type png)
 <use figures/resultado_teste6.png>
-Package pdftex.def Info: figures/resultado_teste6.png  used on input line 584.
+Package pdftex.def Info: figures/resultado_teste6.png  used on input line 582.
 (pdftex.def)             Requested size: 239.00298pt x 111.90114pt.
- [6 <./figures/lugar_raizes_mf_corrigida_aproximada.png> <./figures/resposta_degrau_mf_atualizado.png> <./figures/lugar_raizes_controlador_finalpng.png> <./figures/lugar_raizes_controlador_final_zoom.png> <./figures/comparacao_mf_controle_step.png (PNG copy)> <./figures/resultado_teste1.png (PNG copy)>] [7 <./figures/resultado_teste2.png (PNG copy)> <./figures/resultado_teste3.png (PNG copy)> <./figures/resultado_teste5.png (PNG copy)> <./figures/resultado_teste6.png (PNG copy)>] (./main.aux)
+ [6 <./figures/lugar_raizes_mf_corrigida_aproximada.png> <./figures/resposta_degrau_mf_atualizado.png> <./figures/lugar_raizes_controlador_finalpng.png> <./figures/lugar_raizes_controlador_final_zoom.png> <./figures/comparacao_mf_controle_step.png (PNG copy)>]
+Overfull \vbox (9.49715pt too high) has occurred while \output is active []
+
+ [7 <./figures/resultado_teste1.png (PNG copy)> <./figures/resultado_teste2.png (PNG copy)> <./figures/resultado_teste3.png (PNG copy)> <./figures/resultado_teste5.png (PNG copy)> <./figures/resultado_teste6.png (PNG copy)>] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-29>
+L3 programming layer <2023-08-11>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3734 strings out of 474933
- 60082 string characters out of 5763794
- 1944801 words of memory out of 5000000
- 25249 multiletter control sequences out of 15000+600000
+ 3733 strings out of 475989
+ 60179 string characters out of 5784898
+ 1942248 words of memory out of 5000000
+ 24937 multiletter control sequences out of 15000+600000
  563645 words of font info for 59 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 61i,9n,69p,1005b,269s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 624 hyphenation exceptions out of 8191
+ 61i,9n,69p,1040b,269s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (7 pages, 4672774 bytes).
+Output written on main.pdf (7 pages, 2280421 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
