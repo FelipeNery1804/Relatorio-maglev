@@ -79,337 +79,134 @@ consequentemente irá impor uma força eletromagnética sobre a esfera fazendo-a
 
 \subsection{Modelagem matemática}
 
-Para obter o modelo da planta a ser controlada foi utilizada uma abordagem fenomenológica com decomposição das forças por meio da Mecânica Newtoniana. A imagem abaixo mostra um esquema da planta com os carrinhos, as molas entre eles e a superfície sólida na extremidade.
+\subsection{Modelagem do Sensor}
 
-\begin{figure}[!htb]
-    \begin{center}
-    \includegraphics[width=8.4cm]{figures/Desenho_planta.png}    % The printed column width is 8.4 cm.
-    \caption{Esquema planta a ser estudada com os carrinhos, molas e amortecmento envolvidos. Fonte: Autoral} 
-    \label{fig:Desenho_planta}
-    \end{center}
-  \end{figure}
-
-À partir desse modelo, foi realizada uma decomposição de forças para posterior obtenção do modelo em espaço de estados do sistema. Considerou-se uma força $F(t)$ exercida no carrinho 1 e por meio dela se obteve uma reação contrária das molas e do amortecedor como representado pelo esquema abaixo.
-
-\begin{figure}[!htb]
-    \begin{center}
-    \includegraphics[width=8.4cm]{figures/Desenho_forças.png}    % The printed column width is 8.4 cm.
-    \caption{Decomposição das forças para obtenção das equações. Fonte: Autoral} 
-    \label{fig:Desenho_forças}
-    \end{center}
-  \end{figure}
-
-Com a decomposição das forças como mostrado na figura \ref{fig:Desenho_forças} foi feita uma soma vetorial nos corpos para obter a dinâmica da planta para os carrinhos.
-
+A variável quantificada pelo sensor corresponde à distância,
+sendo que sua resposta resultante é expressa em termos de tensão.
+Neste contexto, surge a necessidade de um modelo que estabeleça a
+relação entre a resposta em tensão gerada pelo sensor e a distância
+efetivamente medida por este último. Devido à proporcionalidade
+das variáveis, a relação entre elas pode ser expressa pela seguinte
+função:
 \begin{equation}
-    \label{eq:planta 1}
-    F(t) - c_{1}\dot{d_{1}} - k_{1}(d_{1}-d_{2}) = m_{1}\ddot{d_{1}}
+    y = ax + b
+\end{equation}
+onde:
+\begin{itemize}
+    \item y - resposta do sensor em volts [V]
+    \item x - distância medida em metros [m]
+    \item a - constante de ganho do sensor em volts por metro [V/m]
+    \item b - constante de offset do sensor em volts [V]
+\end{itemize}
+
+\subsection{Modelagem da Planta}
+
+Inicialmente, procedemos com uma análise das forças atuantes
+no sistema em questão. A força exercida pela bobina é formulada
+mediante a seguinte expressão matemática:
+\begin{equation}
+    \vec{F_b} = k_1 \frac{i^2}{x^2}
 \end{equation}
 
+\noindent onde $i$ representa a intensidade da corrente elétrica, $x$ denota adistância entre o objeto e a bobina, e $k_1$ representa um coeficiente intrínseco ao circuito elétrico. Paralelamente, a força gravitacional que age sobre um corpo é definida como:
+
 \begin{equation}
-    \label{eq:planta 2}
-    - c_{2}\dot{d_{2}} - k_{1}(d_{2}-d_{1}) - k_{2}d_{2} = m_{2}\ddot{d_{2}}
+    \vec{F_g} = mg
 \end{equation}
 
-Para encontar o modelo em espaço de estados, foi preciso primeiramente escolher os estados da planta. Nesse caso foram considerados $d_{1}$, $\dot{d_{1}}$, $d_{2}$, $\dot{d_{2}}$, como $x_{1}$, $x_{2}$, $x_{3}$, $x_{4}$ respectivamente. Com isso, chegou-se ao modelo da planta em espaço de estados.
+\noindent onde $i$ corresponde à massa do corpo em questão, e $g$ representa a aceleração devida à gravidade. Em concordância comos princípios da segunda lei de Newton, podemos estabelecer o
+seguinte resultado:
 
 \begin{equation}
-    \begin{bmatrix}
-        \dot{x_{1}} \\
-        \dot{x_{2}} \\
-        \dot{x_{3}} \\
-        \dot{x_{4}} \\
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        0 & 1 & 0 & 0\\
-        \frac{-(k_{1}+k_{2})}{m_{1}} & \frac{-c_{1}}{m_{1}} & \frac{k_{2}}{m_{1}} & 0\\
-        0 & 0 & 0 & 1\\
-        \frac{k_{2}}{m_{2}} & \frac{-k_{2}}{m_{2}} & 0 & \frac{-c_{2}}{m_{2}}\\
-    \end{bmatrix}
-    \cdot
-    \begin{bmatrix}
-        x_{1} \\
-        x_{2} \\
-        x_{3} \\
-        x_{4} \\
-    \end{bmatrix}
-    +
-    \begin{bmatrix}
-        0 \\
-        \frac{1}{m_{1}} \\
-        0 \\
-        0 \\
-    \end{bmatrix}
-    f(t)
-    \label{eq:Espaco de estados entrada}
-    \end{equation}
-
-    \begin{equation}
-            Y
-        =
-        \begin{bmatrix}
-            0 & 0 & 1 & 0
-        \end{bmatrix}
-        \cdot
-        \begin{bmatrix}
-            x_{1} \\
-            x_{2} \\
-            x_{3} \\
-            x_{4} \\
-        \end{bmatrix}
-        \label{eq:Espaco de estados saida}
-    \end{equation}
-        
-Nesse caso não é preciso linearizar o modelo, porque ele é linear e como mostrado pela equação \ref{eq:Espaco de estados entrada}, pode ser escrito na forma padrão do espaço de estados. Por fim, através do \textit{software} \textit{Matlab}, a planta foi discretizada com um tempo de amostragem de 0,001768 segundos para se obter uma relação mais confiável e precisa.
-
-O próximo passo da modelagem foi encontrar os valores das costantes elásticas das molas e os coeficientes de amortecimento atuando sobre cada carro. Para fazer isso quatro testes específicos foram realizados com o sistema sem a aplicação da força $F(t)$ do motor. Em todos os testes um dos carro foi fixado e o peso dentro de cada um foi variado entre cheio e vazio. A imagem abaixo ilustra um exemplo de m dos testes com a decxomposição das foraças.
-
-\begin{figure}[!htb]
-    \begin{center}
-    \includegraphics[width=8.4cm]{figures/Desenho_testes.png}    % The printed column width is 8.4 cm.
-    \caption{Exemplo da aplicação do teste para uma mola, amortecimento e massa genéricos. Fonte: Autoral} 
-    \label{fig:Desenho_testes}
-    \end{center}
-  \end{figure}
-
-Com a decomposição das forças e considerando que ao soltar os carrinhos da posição de 2,5 cm o sistema sofre uma resposta impulsiva, chega-se à equação \ref{eq:planta testes} que descreve a planta para os parâmetros de froma genérica.
-
-\begin{equation}
-    \label{eq:planta testes}
-    H(s)  = \frac{1}{ms^2+cs+k}
+    m\ddot{x} = mg - k_1 \frac{i^2}{x^2}
 \end{equation}
 
-Após a definição do sistema em espaço de estados, deve-se encontrar os parâmetros
-$k1$, $k2$, $c1$, $c2$, $m1$ e $m2$. Para isso, analisa-se um sistema simples com um carro, um coeficiente de atrito e uma mola,
-cuja equação característica é representada por:
-\begin{equation}
-  s^2 + \frac{c}{m}s + \frac{k}{m} = 0
-\end{equation}
-Esse é um sistema de segunda ordem, que é representado tipicamente por:
-\begin{equation}
-  s^2 + 2\omega_n \zeta s + \omega_n^2 = 0
-\end{equation}
-onde a frequência natural $\omega_n$ e o amortecimento $\zeta$ podem ser
-encontrados facilmente através de respostas ao degrau.
-Comparando os termos de ambas equações, tem-se:
-\begin{equation}
-  \label{eq:termo1}
-  \frac{c}{m} = 2\omega_n \zeta
-\end{equation}
-\begin{equation}
-  \label{eq:termo2}
-  \frac{k}{m} = \omega_n^2
-\end{equation}
-Sendo assim, tem-se duas equações e três variáveis. Portanto, foram realizados quatro testes aplicados a duas diferentes partes da planta.
-Dois testes são realizados com a mola $k1$ e o carro de massa $m1$, onde o primeiro teste consistiu na aplicação de um degrau de 2,5 cm
-na entrada, com uma massa adicional de 2 kg sobre o carro. O segundo, por sua vez, consistiu na aplicação do mesmo degrau, mas sem a massa
-adicional sobre o carro. Do primeiro teste, obtém-se $\omega_{n1}$ e $\zeta_1$, já do segundo, obtém-se $\omega_{n2}$ e $\zeta_2$.
-O mesmos testes são realizados sobre a mola $k_2$ conectado ao carro de massa $m_2$ a fim de obter $\omega_{n3}$, $\zeta_3$ $\omega_{n4}$ e $\zeta_4$.
-Pelas respostas ao degrau, a frequência natural pode ser encontrada calculando o período entre dos picos, o que se torna muito fácil com ajuda de uma calculadora.
-O amortecimento pode ser encontrado analisando através da função $findpeaks$ do $MATLAB$ aplicado à resposta. Como as amplitudes dos picos caem exponencialmente através da relação
-$e^{-\omega_n \zeta}$, seus valores foram submetidos a uma linearização através de um logaritmo
-natural. O resultado da linearização é uma função de primeira ordem, onde o coeficiente angular é igual a $-\omega_n \zeta$.
-Portanto, é possível obter o coeficiente de amortecimento através da frequência natural.
-Com os valores do coeficiente de amortecimento e da frequência natural em mãos, o seguinte sistema de equações
-pode ser resolvido para calcular os parâmetros dos testes 1 e 2, que foram submetidos na primeira parte da planta:
-\begin{equation}
-  \label{eq:sistema1}
-  \left\{
-\begin{array}{lr}
-  \frac{c_1}{m_1 + 2} = 2\omega_{n1} \zeta_1 \\
-  \frac{k_1}{m_1 + 2} = \omega_{n1}^2 \\
-  \frac{k_1}{m_1} = \omega_{n2}^2
-\end{array}
-\right. 
-\end{equation}
-Os testes 3 e 4 foram submetidos na segunda parte da planta e, da mesma forma, que os testes 1 e 2, resultam no seguinte
-sistema de equações:
-\begin{equation}
-  \label{eq:sistema2}
-  \left\{
-\begin{array}{lr}
-  \frac{c_2}{m_2 + 2} = 2\omega_{n3} \zeta_3 \\
-  \frac{k_2}{m_2 + 2} = \omega_{n3}^2 \\
-  \frac{k_2}{m_2} = \omega_{n4}^2
-\end{array}
-\right. 
-\end{equation}
-
-\subsection{Testes 1 e 2}
-Os gráficos das respostas ao degrau dos testes 1 e 2 estão presentes nas figuras \ref{fig:picos_teste_1} e \ref{fig:picos_teste_2}.
-Os gráficos das amplitudes linearizadas sobre o tempo estão presentes nas figuras \ref{fig:regressao_teste_1} e \ref{fig:regressao_teste_2}.
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/picos_teste_1.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta ao degrau do teste 1. Fonte: Autoral.} 
-  \label{fig:picos_teste_1}
-  \end{center}
-\end{figure}
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/regressao_teste_1.png}    % The printed column width is 8.4 cm.
-  \caption{Amplitudes linearizadas do teste 1. Fonte: Autoral.} 
-  \label{fig:regressao_teste_1}
-  \end{center}
-\end{figure}
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/picos_teste_2.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta ao degrau do teste 2. Fonte: Autoral.} 
-  \label{fig:picos_teste_2}
-  \end{center}
-\end{figure}
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/regressao_teste_2.png}    % The printed column width is 8.4 cm.
-  \caption{Amplitudes linearizadas do teste 2. Fonte: Autoral.} 
-  \label{fig:regressao_teste_2}
-  \end{center}
-\end{figure}
-
-Portanto, através dos gráficos da figura \ref{fig:picos_teste_1}, com ajuda do MATLAB, foi obtido uma frequência
-natural de:
-\begin{equation}
-  \omega_{n1} = 10,5956
-\end{equation}
-O resultado da regressão linear da figura \ref{fig:regressao_teste_1} permite dizer que:
-\begin{equation}
-  0,6032 = \omega_{n1} \zeta_1  \rightarrow  \zeta_1 = \frac{0,6032}{\omega_{n1}} = 0,0569
-\end{equation}
-O mesmo procedimento foi feito com os resultados do teste 2, cujo resultados estão presentes nas figuras \ref{fig:picos_teste_2} e \ref{fig:regressao_teste_2}.
-\begin{equation}
-  \omega_{n2} = 19,6965
-\end{equation}
-\begin{equation}
-  1,492 = \omega_{n2} \zeta_2  \rightarrow  \zeta_2 = \frac{1,492}{\omega_{n2}} = 0,0757
-\end{equation}
-
-Com os valores de $\omega_{n1}, \omega_{n2}, \zeta_1$ e $\zeta_2$ em mãos, é possível resolver o sistema \ref{eq:sistema1}
-\begin{equation}
-  \left\{
-\begin{array}{lr}
-  \frac{c_1}{m_1 + 2} = 2\omega_{n1} \zeta_1 \\
-  \frac{k_1}{m_1 + 2} = \omega_{n1}^2 \\
-  \frac{k_1}{m_1} = \omega_{n2}^2
-\end{array}
-\right.
-\end{equation}
+Contudo, considerando que o sinal de entrada se encontra na forma de tensão, torna-se mais propício realizar a conversão da corrente para a mesma unidade de medida. Contudo, o Maglev tem uma malha de controle de corrente interna, possibilitando a seguinte relação funcional:
 
 \begin{equation}
-  \left\{
-\begin{array}{lr}
-  \frac{c_1}{m_1 + 2} = 2 \cdot 10,5956 \cdot 0,0569 \\
-  \frac{k_1}{m_1 + 2} = 10,5956^2 \\
-  \frac{k_1}{m_1} = 19,6965^2
-\end{array}
-\right.
+    i = k_2u
 \end{equation}
+
+\noindent onde $k_2$ representa um coeficiente constante e $u$ corresponde ao sinal de entrada em tensão. Substituindo a equação (5) em (4):
 
 \begin{equation}
-  \left\{
-\begin{array}{lr}
-  m_1 = 0,92 kg \\
-  c_1 = 2,143 Ns/m \\
-  k_1 = 356,5  N/m
-\end{array}
-\right.
-\end{equation}
-\subsection{Testes 3 e 4}
-
-Após a aplicação do degrau de 2,5 cm ao sistema, a saída foi obtida e está presente na figura \ref{fig:picos_teste_3}.
-Além disso, houve a linearização e regressão da amplitude dos picos da resposta ao degrau, assim como descrito nos testes anteriores,
-e está presente na figura \ref{fig:regressao_teste_3}. Para o teste 4, a resposta ao degrau está presente na figura \ref{fig:picos_teste_4}
-e a linearização dos picos juntamente da regressão linear está presente na figura \ref{fig:regressao_teste_4}.
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/picos_teste_3.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta ao degrau do teste 3. Fonte: Autoral.} 
-  \label{fig:picos_teste_3}
-  \end{center}
-\end{figure}
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/regressao_teste_3.png}    % The printed column width is 8.4 cm.
-  \caption{Amplitudes linearizadas do teste 3. Fonte: Autoral.} 
-  \label{fig:regressao_teste_3}
-  \end{center}
-\end{figure}
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/picos_teste_4.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta ao degrau do teste 4. Fonte: Autoral.} 
-  \label{fig:picos_teste_4}
-  \end{center}
-\end{figure}
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/regressao_teste_4.png}    % The printed column width is 8.4 cm.
-  \caption{Amplitudes linearizadas do teste 4. Fonte: Autoral.} 
-  \label{fig:regressao_teste_4}
-  \end{center}
-\end{figure}
-Portanto, através da resposta ao degrau, obtém-se uma frequência natural de:
-\begin{equation}
-    \omega_{n3} = 11,1010
-\end{equation}
-Pela regressão linear, pode-se dizer que:
-\begin{equation}
-    \omega_{n3} \zeta_3 = 0,6515 \rightarrow \zeta_3 = \frac{0,6515}{\omega_{n3}} = 0,0587
+    m\ddot{x} = mg - k_1 \frac{(k_2u)^2}{x^2}
 \end{equation}
 
-Realizando o mesmo procedimento para o teste 4, tem-se:
-\begin{equation}
-    \omega_{n4} = 33,7806
-\end{equation}
-Pela regressão linear, pode-se dizer que:
-\begin{equation}
-    \omega_{n4} \zeta_4 = 1,321 \rightarrow \zeta_4 = \frac{1,321}{\omega_{n4}} = 0,0391
-\end{equation}
-
-Aplicando os valores de frequência natural e amortecimento dos testes 3 e 4 ao sistema de equações \ref{eq:sistema2}, tem-se:
+Tendo as equações não lineares que representam o sistema, pode-se
+construir a representação da dinâmica da planta por:
 
 \begin{equation}
-  \left\{
-\begin{array}{lr}
-  \frac{c_2}{m_2 + 2} = 2\omega_{n3} \zeta_3 \\
-  \frac{k_1}{m_2 + 2} = \omega_{n3}^2 \\
-  \frac{k_2}{m_2} = \omega_{n4}^2
-\end{array}
-\right.
+    \dot{x}_1 = x_2
 \end{equation}
+\begin{equation}
+    \ddot{x}_2 = g - k_1 \frac{(k_2u)^2}{mx^2}
+\end{equation}
+
+A equação (8) pode ser simplificada para:
 
 \begin{equation}
-  \left\{
-\begin{array}{lr}
-  \frac{c_2}{m_2 + 2} = 2 \cdot 11,1010 \cdot 0,0587 \\
-  \frac{k_2}{m_2 + 2} = 11,1010^2 \\
-  \frac{k_2}{m_2} = 33,7806^2
-\end{array}
-\right.
+    f(x,u) = \ddot{x}_2 = g - \frac{k}{m} \frac{u^2}{x^2}
 \end{equation}
+
+\noindent facilitando a linearização.
+
+\subsection{Linearização}
+
+A teoria de controle linear parte do princípio de que a planta
+possui comportamento linear. Mas nem sempre isto é
+verdade. Contudo, para toda função bem comportada em torno de
+um ponto fixo, para variações pequenas, curva pode ser aproximada por uma reta que passa pelo ponto fixo. Novas equações podem ser obtidas a partir de (7) e (9) de modo a se obter a dinâmica para pequenas variações. Por este motivo as seguintes variáveis são definidas:
 
 \begin{equation}
-  \left\{
-\begin{array}{lr}
-  m_2 = 0,896 kg \\
-  c_2 = 3,774 Ns/m \\
-  k_2 = 1022,45 N/m
-\end{array}
-\right.
+    \delta x = x - x_{eq}
+\end{equation}
+\begin{equation}
+    \delta u = u - u_{eq}
+\end{equation}
+\begin{equation}
+    \delta y = y - y_{eq}
 \end{equation}
 
-\subsection{Validação do modelo}
+\noindent onde $x$, $u$ e $y$ são as variáveis originais, $x_{eq}$, $u_{eq}$ e $y_{eq}$ são valores que a planta assume quando está em uma condição de equilíbrio e $\delta x$, $\delta u$ e $\delta y$ as variações em torno do ponto de equilíbrio. Vale ressaltar que o ponto de equilíbrio escolhido deve ser o mais próximo possível das especificações de desempenho desejado, ou seja, os valores que fazem a esfera flutuar a 9 mm, pois fora do ponto de equilíbrio os comportamentos não lineares são mais evidentes. Substituindo o novo sistema de variáveis nas equações de estados a seguintes equações são obtidas:
 
-Foi realizada a aplicação de uma entrada em degrau de tensão na planta em malha aberta, onde a sua resposta
-foi comparada com a resposta ao degrau da planta simulada pelo $MATLAB$. Ambas as reposta apresentaram semelhanças,
-o que é um bom sinal, haja vista as dificuldades enfrentadas até aqui.
+\begin{equation}
+    \dot{x}_1 = x_2 = 0
+\end{equation}
+\begin{equation}
+    \ddot{x}_2 = g - k \frac{u_o^2}{x_o^2} = 0 \rightarrow u_o = \sqrt{\frac{mg}{k}}x_o
+\end{equation}
+Os valores de $m$ e $k$ não são definidos separadamente, mas sim através da seguinte relação:
+\begin{equation}
+    \frac{k}{m} = 1,2415 \cdot 10^{-3}
+\end{equation}
+\noindent enquanto a aceleração da gravidade é tomada por $g = 9,81 \; m/s^2$. Sendo assim, a corrente de entrada para uma saída de equilíbrio $x_o = 9\;mm$ é:
+\begin{equation}
+    u_o = \sqrt{\frac{9,81\;m/s^2}{1,2415 \cdot 10^{-3}}} \cdot 0,009\;m
+\end{equation}
+\begin{equation}
+    u_o = 0,8\;A
+\end{equation}
+
+O modelo linearizado da planta, portanto, é dado por:
+\begin{equation}
+    \ddot{x} = -[K_i u + a_x x]
+\end{equation}
+onde $K_i$ e $a_x x$ são coeficientes dados por:
+\begin{equation}
+    K_i = [\frac{\partial}{\partial u}f(x,u)]_{x = x_o, u = u_o}
+\end{equation}
+\begin{equation}
+    a_x = [\frac{\partial}{\partial x}f(x,u)]_{x = x_o, u = u_o}
+\end{equation}
+Tomando as derivadas parciais e aplicando o ponto de operação, tem-se:
+
+\begin{equation}
+    K_i = \frac{-2ku_o}{mx_o^2} = \frac{-2\cdot1,2415 \cdot 10^{-3}\cdot 0,8\;A}{(0,009\;m)^2} = 
+\end{equation}
+\begin{equation}
+    a_x = \frac{2ku_o^2}{mx_o^3} = \frac{2\cdot1,2415 \cdot 10^{-3}\cdot (0,8\;A)^2}{(0,009\;m)^3} = 
+\end{equation}
 
 \section{Projeto do controlador}
 
