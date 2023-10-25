@@ -69,30 +69,13 @@ maglev, bem como o fundamento do controle utilizado e demonstrações práticas.
 O controle a ser realizado visa, inicialmente, controlar a posição de uma esfera de aço bem como tornar o sistema estável (deixando-a parada) com erro nulo para entrada de degrau, 
 %CONFIRMAR ISSO DO TEMPO DE ACOMADAÇÃO E SOBRESSINA.
 A planta a ser estudada envolve além da esfera de aço, um eletroímã, o qual irá gerar um campo magnético que
-consequentemente irá impor uma força eletromagnética sobre a esfera fazendo-a levitar com um controle preciso de posição.
+consequentemente irá impor uma força eletromagnética sobre a esfera fazendo-a levitar com um controle preciso de posição. Essa posição é definida em 9 milimetros de distância
+do atuador.
 
 
 \section{Modelagem matemática e validação do modelo}
 
-\subsection{Modelagem do Sensor}
 
-A variável quantificada pelo sensor corresponde à distância,
-sendo que sua resposta resultante é expressa em termos de tensão.
-Neste contexto, surge a necessidade de um modelo que estabeleça a
-relação entre a resposta em tensão gerada pelo sensor e a distância
-efetivamente medida por este último. Devido à proporcionalidade
-das variáveis, a relação entre elas pode ser expressa pela seguinte
-função:
-\begin{equation}
-    y = ax + b
-\end{equation}
-onde:
-\begin{itemize}
-    \item y - resposta do sensor em volts [V]
-    \item x - distância medida em metros [m]
-    \item a - constante de ganho do sensor em volts por metro [V/m]
-    \item b - constante de offset do sensor em volts [V]
-\end{itemize}
 
 \subsection{Modelagem da Planta}
 
@@ -126,7 +109,7 @@ seguinte resultado:
 A teoria de controle linear parte do princípio de que a planta
 possui comportamento linear. Mas nem sempre isto é
 verdade. Contudo, para toda função bem comportada em torno de
-um ponto fixo, para variações pequenas, curva pode ser aproximada por uma reta que passa pelo ponto fixo. Novas equações podem ser obtidas a partir de (7) e (9) de modo a se obter a dinâmica para pequenas variações. Por este motivo as seguintes variáveis são definidas:
+um ponto fixo, com variações pequenas, a curva pode ser aproximada por uma reta que passa por esse ponto. As variações são definidas:
 
 \begin{equation}
     \delta x = x - x_{eq}
@@ -159,7 +142,7 @@ Portanto, a entrada e a saída de equilíbrio estipulados são $i_o = 0,8\;A$ e 
     \ddot{x} = -[K_i i + a_x x]
     \label{eq:linear}
 \end{equation}
-onde $K_i$ e $a_x x$ são coeficientes dados por:
+onde $K_i$ e $a_x$ são coeficientes dados por:
 \begin{equation}
     K_i = [\frac{\partial}{\partial i}f(x,i)]_{x = x_o, i = i_o}
 \end{equation}
@@ -202,7 +185,8 @@ Por fim, a saída da planta, na prática, é dada por tensão, através da rela�
 \begin{equation}
     v(t) = k_sx(t)
 \end{equation}
-que, em Laplace, é:
+onde $k_s$ também é uma constante de proporcionalidade entre a tensão e a distância da bolinha e está
+relacionada ao sensor da planta. Em Laplace, a relação anterior se torna:
 \begin{equation}
     V(s) = k_sX(s)
     \label{eq:tensaosaidalaplace}
@@ -210,6 +194,7 @@ que, em Laplace, é:
 Substituindo \ref{eq:tensaosaidalaplace} em \ref{eq:FT2}, tem-se:
 \begin{equation}
     G(s) = \frac{V(s)}{U(s)} = \frac{-k_sk_1K_i}{s^2+a_x}
+    \label{eq:TF3}
 \end{equation}
 Os valores das constantes são:
 \begin{equation}
@@ -219,7 +204,7 @@ Os valores das constantes são:
     k_s = 143,48\; V/m
 \end{equation}
 \noindent e foram obtidos pelo diagrama de simulação da planta.
-Ao final, a função de transferência que descreve o comportamento linear da planta em torno do ponto de operação estipulado em $x_o = 0,009\;m$ é:
+Ao final, substituindo os valores de $k_1$, $k_s$, $K_i$ e $a_x$ em \ref{eq:TF3}, a função de transferência que descreve o comportamento linear da planta em torno do ponto de operação estipulado em $x_o = 0,009\;m$ é:
 \begin{equation}
     G(s) = \frac{3695}{s^2 - 2180}
     \label{eq:FTFINAL}
@@ -230,13 +215,28 @@ O modelo obtido não é estável e, portanto, não é possível aplicar uma entr
 \begin{equation}
     C(s) = K_d(s+\frac{K_p}{K_d})
 \end{equation}
-\noindent onde $K_d$ é o ganho do controlador e $\frac{K_p}{K_d}$ é o zero do mesmo. O lugar das raízes da planta está presente na figura abaixo.
+\noindent onde $K_d$ é o ganho do controlador e $\frac{K_p}{K_d}$ é o zero do mesmo.
+O lugar das raízes da planta está presente na figura abaixo. Por ele, nota-se que um dos polos
+está situado no semi-plano positivo, ou seja, o sistema é instável. O controlador
+PD será calculado a fim de deslocar esse polo para o semi-plano direito, estabilizando o sistema.
 
-[COLOCAR LUGAR DAS RAIZES TÁ NO DESKTOP DO GUSTAVO]
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/rloCUs.png}    % The printed column width is 8.4 cm.
+  \caption{Lugar das raízes da planta G(s). Fonte: Autoral, produzida com \textit{MATLAB}.} 
+  \label{fig:rlocus1}
+  \end{center}
+\end{figure}
 
-Sendo assim, a fim de estabilizar a planta, foi estipulado um zero em $s = -20$ e um ganho de 0,2, que resultou no seguinte lugar das raízes, com o deslocamento do polo instável para $s = -17,5$. O outro polo é negativo, então, para fins de validação, já está satisfatório.
+Sendo assim, foi alocado um zero em $s = -20$ e um ganho de 0,2, que resultou no seguinte lugar das raízes, com o deslocamento do polo instável para $s = -17,5$. O outro polo é negativo, então, para fins de validação, já está satisfatório.
 
-[COLOCAR LUGAR DAS RAIZES CORRIGIDO TÁ NO DESKTOP DO GUSTAVO]
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/rlocus2.png}    % The printed column width is 8.4 cm.
+  \caption{Lugar das raízes da planta G(s) com compensador C(s). Fonte: Autoral, produzida com \textit{MATLAB}.} 
+  \label{fig:rlocus2}
+  \end{center}
+\end{figure}
 
 Portanto, tem-se:
 \begin{equation}
@@ -245,6 +245,29 @@ Portanto, tem-se:
 \begin{equation}
     \frac{K_p}{K_i} = 20 \rightarrow K_p = 4
 \end{equation}
+
+Ao final, o sistema de validação será correspondente à seguinte figura:
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/diagramaPDvalidacao.png}    % The printed column width is 8.4 cm.
+  \caption{Diagrama em blocos do sistema realimentado para validação. Fonte: Autoral, produzida com \textit{SIMULINK}.} 
+  \label{fig:validacao}
+  \end{center}
+\end{figure}
+
+O sistema anterior foi simulado para uma entrada de referência de onda quadrada com 2 mm de amplitude 1 Hz de frequência. O resultado da simulação está presente na figura \ref{fig:simvalidacao}.
+Vale lembrar que a saída está em torno do ponto de operação.
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/SimPDvalidacao.png}    % The printed column width is 8.4 cm.
+  \caption{Resultado de simulação. Fonte: Autoral, produzida com \textit{SIMULINK}.} 
+  \label{fig:simvalidacao}
+  \end{center}
+\end{figure}
+
+Em seguida, o teste prático foi realizado implementando o mesmo compensador PD utilizado na simulação. O resultado do teste não foi coletado, mas se
+mostrou bastante satisfatório em comparação com a planta simulada, ou seja, a função de transferência em \ref{eq:FTFINAL} se mostra capaz de representar
+o sistema real.
 
 \section{Projeto do controlador}
  

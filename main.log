@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.5)  24 OCT 2023 22:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.5)  24 OCT 2023 23:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -268,77 +268,98 @@ File: figures/planta_padrao.png Graphic file (type png)
 Package pdftex.def Info: figures/planta_padrao.png  used on input line 58.
 (pdftex.def)             Requested size: 182.09746pt x 234.63353pt.
 
-Overfull \hbox (1.85915pt too wide) in paragraph at lines 79--86
-[]\OT1/cmr/m/n/10 A vari^^Savel quan-tifi-cada pelo sen-sor cor-re-sponde ^^Ra dist^ancia,
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 103.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 86.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 103.
-[1{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 86.
+ [1{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
  <./figures/planta_padrao.png>] [2]
-<figures/lei pid inicial.jpg, id=25, 702.625pt x 526.96875pt>
+<figures/rloCUs.png, id=25, 472.76625pt x 382.42876pt>
+File: figures/rloCUs.png Graphic file (type png)
+<use figures/rloCUs.png>
+Package pdftex.def Info: figures/rloCUs.png  used on input line 225.
+(pdftex.def)             Requested size: 239.00298pt x 193.33798pt.
+<figures/rlocus2.png, id=26, 459.21562pt x 373.395pt>
+File: figures/rlocus2.png Graphic file (type png)
+<use figures/rlocus2.png>
+Package pdftex.def Info: figures/rlocus2.png  used on input line 235.
+(pdftex.def)             Requested size: 239.00298pt x 194.33743pt.
+<figures/diagramaPDvalidacao.png, id=27, 903.375pt x 232.61906pt>
+File: figures/diagramaPDvalidacao.png Graphic file (type png)
+<use figures/diagramaPDvalidacao.png>
+Package pdftex.def Info: figures/diagramaPDvalidacao.png  used on input line 252.
+(pdftex.def)             Requested size: 239.00298pt x 61.54082pt.
+<figures/SimPDvalidacao.png, id=28, 432.11438pt x 370.38374pt>
+File: figures/SimPDvalidacao.png Graphic file (type png)
+<use figures/SimPDvalidacao.png>
+Package pdftex.def Info: figures/SimPDvalidacao.png  used on input line 262.
+(pdftex.def)             Requested size: 239.00298pt x 204.85895pt.
+<figures/lei pid inicial.jpg, id=29, 702.625pt x 526.96875pt>
 File: figures/lei pid inicial.jpg Graphic file (type jpg)
 <use figures/lei pid inicial.jpg>
-Package pdftex.def Info: figures/lei pid inicial.jpg  used on input line 264.
+Package pdftex.def Info: figures/lei pid inicial.jpg  used on input line 287.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
-<figures/lei pid ajuste.jpg, id=26, 702.625pt x 526.96875pt>
+ [3 <./figures/rloCUs.png> <./figures/rlocus2.png> <./figures/diagramaPDvalidacao.png> <./figures/SimPDvalidacao.png>]
+<figures/lei pid ajuste.jpg, id=37, 702.625pt x 526.96875pt>
 File: figures/lei pid ajuste.jpg Graphic file (type jpg)
 <use figures/lei pid ajuste.jpg>
-Package pdftex.def Info: figures/lei pid ajuste.jpg  used on input line 287.
+Package pdftex.def Info: figures/lei pid ajuste.jpg  used on input line 310.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
-<figures/Diagrama filtro.png, id=27, 370.38374pt x 99.9735pt>
+<figures/Diagrama filtro.png, id=38, 370.38374pt x 99.9735pt>
 File: figures/Diagrama filtro.png Graphic file (type png)
 <use figures/Diagrama filtro.png>
-Package pdftex.def Info: figures/Diagrama filtro.png  used on input line 299.
+Package pdftex.def Info: figures/Diagrama filtro.png  used on input line 322.
 (pdftex.def)             Requested size: 239.00298pt x 64.51215pt.
- [3 <./figures/lei pid inicial.jpg> <./figures/lei pid ajuste.jpg>]
-<figures/resultado_teste1.png, id=31, 421.575pt x 316.18124pt>
+<figures/resultado_teste1.png, id=39, 421.575pt x 316.18124pt>
 File: figures/resultado_teste1.png Graphic file (type png)
 <use figures/resultado_teste1.png>
-Package pdftex.def Info: figures/resultado_teste1.png  used on input line 345.
+Package pdftex.def Info: figures/resultado_teste1.png  used on input line 368.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
-<figures/resultado_teste2.png, id=32, 421.575pt x 316.18124pt>
+ [4 <./figures/lei pid inicial.jpg> <./figures/lei pid ajuste.jpg> <./figures/Diagrama filtro.png>]
+<figures/resultado_teste2.png, id=44, 421.575pt x 316.18124pt>
 File: figures/resultado_teste2.png Graphic file (type png)
 <use figures/resultado_teste2.png>
-Package pdftex.def Info: figures/resultado_teste2.png  used on input line 353.
+Package pdftex.def Info: figures/resultado_teste2.png  used on input line 376.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
-<figures/resultado_teste3.png, id=33, 421.575pt x 316.18124pt>
+<figures/resultado_teste3.png, id=45, 421.575pt x 316.18124pt>
 File: figures/resultado_teste3.png Graphic file (type png)
 <use figures/resultado_teste3.png>
-Package pdftex.def Info: figures/resultado_teste3.png  used on input line 361.
+Package pdftex.def Info: figures/resultado_teste3.png  used on input line 384.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
-<figures/resultado_teste4.png, id=34, 421.575pt x 316.18124pt>
+<figures/resultado_teste4.png, id=46, 421.575pt x 316.18124pt>
 File: figures/resultado_teste4.png Graphic file (type png)
 <use figures/resultado_teste4.png>
-Package pdftex.def Info: figures/resultado_teste4.png  used on input line 369.
+Package pdftex.def Info: figures/resultado_teste4.png  used on input line 392.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
-<figures/resultado_teste5.png, id=35, 421.575pt x 316.18124pt>
+<figures/resultado_teste5.png, id=47, 421.575pt x 316.18124pt>
 File: figures/resultado_teste5.png Graphic file (type png)
 <use figures/resultado_teste5.png>
-Package pdftex.def Info: figures/resultado_teste5.png  used on input line 377.
+Package pdftex.def Info: figures/resultado_teste5.png  used on input line 400.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
- [4 <./figures/Diagrama filtro.png> <./figures/resultado_teste1.png (PNG copy)> <./figures/resultado_teste2.png (PNG copy)>] [5 <./figures/resultado_teste3.png (PNG copy)> <./figures/resultado_teste4.png (PNG copy)> <./figures/resultado_teste5.png (PNG copy)>] (./main.aux)
+ [5 <./figures/resultado_teste1.png (PNG copy)> <./figures/resultado_teste2.png (PNG copy)> <./figures/resultado_teste3.png (PNG copy)> <./figures/resultado_teste4.png (PNG copy)>] [6
+
+ <./figures/resultado_teste5.png (PNG copy)>] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3627 strings out of 474933
- 55229 string characters out of 5763794
+ 3660 strings out of 474933
+ 56146 string characters out of 5763794
  1942801 words of memory out of 5000000
- 25133 multiletter control sequences out of 15000+600000
+ 25166 multiletter control sequences out of 15000+600000
  566200 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,9n,69p,1006b,267s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 61i,8n,69p,1006b,269s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (5 pages, 590925 bytes).
+Output written on main.pdf (6 pages, 662524 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 108 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
