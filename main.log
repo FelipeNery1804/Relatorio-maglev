@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.22)  24 OCT 2023 21:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.5)  24 OCT 2023 22:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/lipen/OneDrive/UFMG/PDFs Aulas UFMG/Semestre 23-2/Lab. Controle e Automação/Planta Maglev/Relatório/Relatorio-maglev/main.tex"
-(c:/Users/lipen/OneDrive/UFMG/PDFs Aulas UFMG/Semestre 23-2/Lab. Controle e Automação/Planta Maglev/Relatório/Relatorio-maglev/main.tex
+**"c:/Users/gusta/OneDrive/Documents/UFMG/7º Período/Lab Controle/Relatório 2/Relatorio-maglev/main.tex"
+(c:/Users/gusta/OneDrive/Documents/UFMG/7º Período/Lab Controle/Relatório 2/Relatorio-maglev/main.tex
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-11>
+L3 programming layer <2023-08-29>
 (./ifacconf.cls
 Document Class: ifacconf 2008/04/14, 3.2ModD: IFAC conferences
 
@@ -279,93 +279,66 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 [1{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
  <./figures/planta_padrao.png>] [2]
-<figures/lugar_raizes_mf.png, id=25, 777.40437pt x 355.82938pt>
-File: figures/lugar_raizes_mf.png Graphic file (type png)
-<use figures/lugar_raizes_mf.png>
-Package pdftex.def Info: figures/lugar_raizes_mf.png  used on input line 266.
-(pdftex.def)             Requested size: 239.00298pt x 109.3938pt.
-<figures/lugar_raizes_mf_aproximada.png, id=26, 796.9775pt x 349.305pt>
-File: figures/lugar_raizes_mf_aproximada.png Graphic file (type png)
-<use figures/lugar_raizes_mf_aproximada.png>
-Package pdftex.def Info: figures/lugar_raizes_mf_aproximada.png  used on input line 274.
-(pdftex.def)             Requested size: 239.00298pt x 104.74966pt.
-<figures/lugar_raizes_mf_corrigida.png, id=27, 791.95876pt x 363.3575pt>
-File: figures/lugar_raizes_mf_corrigida.png Graphic file (type png)
-<use figures/lugar_raizes_mf_corrigida.png>
-Package pdftex.def Info: figures/lugar_raizes_mf_corrigida.png  used on input line 290.
-(pdftex.def)             Requested size: 239.00298pt x 109.65677pt.
-<figures/lugar_raizes_mf_corrigida_aproximada.png, id=28, 793.96625pt x 360.34625pt>
-File: figures/lugar_raizes_mf_corrigida_aproximada.png Graphic file (type png)
-<use figures/lugar_raizes_mf_corrigida_aproximada.png>
-Package pdftex.def Info: figures/lugar_raizes_mf_corrigida_aproximada.png  used on input line 298.
-(pdftex.def)             Requested size: 239.00298pt x 108.4731pt.
-<figures/resposta_degrau_mf_atualizado.png, id=29, 778.91pt x 347.79938pt>
-File: figures/resposta_degrau_mf_atualizado.png Graphic file (type png)
-<use figures/resposta_degrau_mf_atualizado.png>
-Package pdftex.def Info: figures/resposta_degrau_mf_atualizado.png  used on input line 306.
-(pdftex.def)             Requested size: 239.00298pt x 106.71814pt.
- [3 <./figures/lugar_raizes_mf.png> <./figures/lugar_raizes_mf_aproximada.png> <./figures/lugar_raizes_mf_corrigida.png>]
-<figures/lugar_raizes_controlador_finalpng.png, id=36, 790.955pt x 350.81062pt>
-File: figures/lugar_raizes_controlador_finalpng.png Graphic file (type png)
-<use figures/lugar_raizes_controlador_finalpng.png>
-Package pdftex.def Info: figures/lugar_raizes_controlador_finalpng.png  used on input line 321.
-(pdftex.def)             Requested size: 239.00298pt x 106.0041pt.
-<figures/lugar_raizes_controlador_final_zoom.png, id=37, 808.52063pt x 355.82938pt>
-File: figures/lugar_raizes_controlador_final_zoom.png Graphic file (type png)
-<use figures/lugar_raizes_controlador_final_zoom.png>
-Package pdftex.def Info: figures/lugar_raizes_controlador_final_zoom.png  used on input line 330.
-(pdftex.def)             Requested size: 239.00298pt x 105.1805pt.
-<figures/comparacao_mf_controle_step.png, id=38, 1445.4pt x 676.77844pt>
-File: figures/comparacao_mf_controle_step.png Graphic file (type png)
-<use figures/comparacao_mf_controle_step.png>
-Package pdftex.def Info: figures/comparacao_mf_controle_step.png  used on input line 360.
-(pdftex.def)             Requested size: 239.00298pt x 111.90114pt.
-<figures/resultado_teste1.png, id=39, 421.575pt x 316.18124pt>
+<figures/lei pid inicial.jpg, id=25, 702.625pt x 526.96875pt>
+File: figures/lei pid inicial.jpg Graphic file (type jpg)
+<use figures/lei pid inicial.jpg>
+Package pdftex.def Info: figures/lei pid inicial.jpg  used on input line 264.
+(pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
+<figures/lei pid ajuste.jpg, id=26, 702.625pt x 526.96875pt>
+File: figures/lei pid ajuste.jpg Graphic file (type jpg)
+<use figures/lei pid ajuste.jpg>
+Package pdftex.def Info: figures/lei pid ajuste.jpg  used on input line 287.
+(pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
+<figures/Diagrama filtro.png, id=27, 370.38374pt x 99.9735pt>
+File: figures/Diagrama filtro.png Graphic file (type png)
+<use figures/Diagrama filtro.png>
+Package pdftex.def Info: figures/Diagrama filtro.png  used on input line 299.
+(pdftex.def)             Requested size: 239.00298pt x 64.51215pt.
+ [3 <./figures/lei pid inicial.jpg> <./figures/lei pid ajuste.jpg>]
+<figures/resultado_teste1.png, id=31, 421.575pt x 316.18124pt>
 File: figures/resultado_teste1.png Graphic file (type png)
 <use figures/resultado_teste1.png>
-Package pdftex.def Info: figures/resultado_teste1.png  used on input line 385.
+Package pdftex.def Info: figures/resultado_teste1.png  used on input line 345.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
-<figures/resultado_teste2.png, id=40, 421.575pt x 316.18124pt>
+<figures/resultado_teste2.png, id=32, 421.575pt x 316.18124pt>
 File: figures/resultado_teste2.png Graphic file (type png)
 <use figures/resultado_teste2.png>
-Package pdftex.def Info: figures/resultado_teste2.png  used on input line 393.
+Package pdftex.def Info: figures/resultado_teste2.png  used on input line 353.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
-<figures/resultado_teste3.png, id=41, 421.575pt x 316.18124pt>
+<figures/resultado_teste3.png, id=33, 421.575pt x 316.18124pt>
 File: figures/resultado_teste3.png Graphic file (type png)
 <use figures/resultado_teste3.png>
-Package pdftex.def Info: figures/resultado_teste3.png  used on input line 401.
+Package pdftex.def Info: figures/resultado_teste3.png  used on input line 361.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
-<figures/resultado_teste4.png, id=42, 421.575pt x 316.18124pt>
+<figures/resultado_teste4.png, id=34, 421.575pt x 316.18124pt>
 File: figures/resultado_teste4.png Graphic file (type png)
 <use figures/resultado_teste4.png>
-Package pdftex.def Info: figures/resultado_teste4.png  used on input line 409.
+Package pdftex.def Info: figures/resultado_teste4.png  used on input line 369.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
-<figures/resultado_teste5.png, id=43, 421.575pt x 316.18124pt>
+<figures/resultado_teste5.png, id=35, 421.575pt x 316.18124pt>
 File: figures/resultado_teste5.png Graphic file (type png)
 <use figures/resultado_teste5.png>
-Package pdftex.def Info: figures/resultado_teste5.png  used on input line 417.
+Package pdftex.def Info: figures/resultado_teste5.png  used on input line 377.
 (pdftex.def)             Requested size: 239.00298pt x 179.25545pt.
- [4 <./figures/lugar_raizes_mf_corrigida_aproximada.png> <./figures/resposta_degrau_mf_atualizado.png> <./figures/lugar_raizes_controlador_finalpng.png> <./figures/lugar_raizes_controlador_final_zoom.png> <./figures/comparacao_mf_controle_step.png (PNG copy)>] [5 <./figures/resultado_teste1.png (PNG copy)> <./figures/resultado_teste2.png (PNG copy)> <./figures/resultado_teste3.png (PNG copy)> <./figures/resultado_teste4.png (PNG copy)>] [6
-
- <./figures/resultado_teste5.png (PNG copy)>] (./main.aux)
+ [4 <./figures/Diagrama filtro.png> <./figures/resultado_teste1.png (PNG copy)> <./figures/resultado_teste2.png (PNG copy)>] [5 <./figures/resultado_teste3.png (PNG copy)> <./figures/resultado_teste4.png (PNG copy)> <./figures/resultado_teste5.png (PNG copy)>] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-11>
+L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3658 strings out of 475189
- 57307 string characters out of 5767835
- 1941248 words of memory out of 5000000
- 24908 multiletter control sequences out of 15000+600000
+ 3627 strings out of 474933
+ 55229 string characters out of 5763794
+ 1942801 words of memory out of 5000000
+ 25133 multiletter control sequences out of 15000+600000
  566200 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,9n,69p,1040b,265s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 61i,9n,69p,1006b,267s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (6 pages, 928381 bytes).
+Output written on main.pdf (5 pages, 590925 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

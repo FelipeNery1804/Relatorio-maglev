@@ -245,140 +245,100 @@ Portanto, tem-se:
 \begin{equation}
     \frac{K_p}{K_i} = 20 \rightarrow K_p = 4
 \end{equation}
+
 \section{Projeto do controlador}
-
-A principio, buscamos realizar o controlador proporcional, integrativo e derivativo (PID), 
-por garantir erro nulo para entrada em degrau e por ser amplamente difundido nas industrias
-e sistemas de controle em geral. A seguir será explicitado as tentativas para obter esse controlador.
-
-\subsection{Primeira tentativa} %Falha obtida
-Para obtenção dos parâmetros foi plotado o lugar das raizes da planta em malha fechada, figuras \ref{fig:lugar_raizes_mf} e \ref{fig:lugar_raizes_mf_aproximada}.
-Com o lugar da raizes traçados, foi utilizado o \textit{sisotool} para realizar a escolha da localização dos polos e ganho do controlador PID, com isso realizamos
-o cancelamento de polos mais instaveis, os polos localizados mais a direita do circulo unitário, e escolhemos um ganho arbritário para sair da instabilidade e obter
-uma resposta satisfatória. Por fim, implementamos o controle na planta e visualizamos que a resposta obtida na planta não condizia com o esperado visto no \textit{MatLab},
-independente da referência inserida, o carrinho não se mexia nada, consequentemente, acreditamos que o ganho do Kp estava baixo e fomos aumentando de forma empirica, 
-após diversos aumentos no Kp, o carrinho começou a se mexer. Sendo assim, a planta modelada era equivalente com o sistema em malha aberta, mas em malha fechada o comportamento
-era diferente. De forma a elucidar o ocorrido, assumimos de que a falha ocorreu devido aos coeficientes de atrito C1 e C2, portanto, aumentamos esses parâmetros, empiricamente, até
-obter uma resposta satisfatória para iniciar novamente o processo de controle mas com uma nova modelagem da planta. 
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/lugar_raizes_mf.png}    % The printed column width is 8.4 cm.
-  \caption{Lugar da raizes da malha fechada da planta. Fonte: autoral, produzida com \textit{matlab}.} 
-  \label{fig:lugar_raizes_mf}
-  \end{center}
-\end{figure}
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/lugar_raizes_mf_aproximada.png}    % The printed column width is 8.4 cm.
-  \caption{Lugar da raizes da malha fechada da planta aproximada na extremidade do circulo unitário. Fonte: autoral, produzida com \textit{matlab}.} 
-  \label{fig:lugar_raizes_mf_aproximada}
-  \end{center}
-\end{figure}
-
-\subsection{Segunda tentiva} %Controle corrigido
-Sequencialmente após a correção dos parâmetros C1 e C2, de forma impirica, recalculamos o modelo de espaço de estados utilizando a equação X.
-
-Posteriormente foi realizado um novo estudo sobre o lugar das raizes em malha fechada, figura \ref{fig:lugar_raizes_mf_atualizada}, em que
-aproximando para próximo da extremidade do circulo unitário temos a figura \ref{fig:lugar_raizes_mf_atualizada_zoom}. 
-Em que é possível perceber que a caracteristica da resposta do modelo é fortemente marcada por dois pares de polos conjugados
-próximos a extremidade do circulo unitário levando para a instabilidade do sistema, como mostra a resposta ao degrau do sistema, figura \ref{fig:resposta_Degrau_mf_atualizada}.
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/lugar_raizes_mf_corrigida.png}    % The printed column width is 8.4 cm.
-  \caption{Lugar da raizes da malha fechada da planta atualizada. Fonte: autoral, produzida com \textit{matlab}.} 
-  \label{fig:lugar_raizes_mf_atualizada}
-  \end{center}
-\end{figure}
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/lugar_raizes_mf_corrigida_aproximada.png}    % The printed column width is 8.4 cm.
-  \caption{Lugar da raizes da malha fechada da planta atualizada aproximada na extremidade do circulo unitário. Fonte: autoral, produzida com \textit{matlab}.} 
-  \label{fig:lugar_raizes_mf_atualizada_zoom}
-  \end{center}
-\end{figure}
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/resposta_degrau_mf_atualizado.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta ao degrau da planta atualizada, sem controlador, indo para a instabilidade. Fonte: autoral, produzida com \textit{matlab}.} 
-  \label{fig:resposta_Degrau_mf_atualizada}
-  \end{center}
-\end{figure}
-
-Com isso, foi inserido o integrador e um par de zeros conjugados, controlador PID, próximo ao par de polos conjugados mais a direita do circulo unitário com 
-a finalidade de atraí-los para dentro do circulo unitário, estabilizando o sistema e melhorando a margem de ganho. Nesse processo visualizamos
-que o integrador colocado fazia com que o lugar das raizes do segundo par de polos conjugados da planta direcionasse para a instabilidade, portanto,
-procuramos alocar o par de zeros conjugados de forma a garantir a não instabilidade do primeiro par de polos e de aumentar a margem de ganho em relação
-ao segundo par de polos, para tal, o par de zeros deveria se localizar entre ambos os polos, mas mais próximo do primeiro. O lugar das raizes do controlador
-é explicitado pelas figuras \ref{fig:lugar_raizes_mf_atualizada_controlador} e \ref{fig:lugar_raizes_mf_atualizada_controlador_zoom}. 
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/lugar_raizes_controlador_finalpng.png}    % The printed column width is 8.4 cm.
-  \caption{Lugar da raizes da malha fechada da planta atualizada com controlador PID. Fonte: autoral, produzida com \textit{matlab}.} 
-  \label{fig:lugar_raizes_mf_atualizada_controlador}
-  \end{center}
-\end{figure}
-
-
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/lugar_raizes_controlador_final_zoom.png}    % The printed column width is 8.4 cm.
-  \caption{Lugar da raizes da malha fechada da planta atualizada com controlador PID aproximada na extremidade do circulo unitário. Fonte: autoral, produzida com \textit{matlab}.} 
-  \label{fig:lugar_raizes_mf_atualizada_controlador_zoom}
-  \end{center}
-\end{figure}
-
-Posteriormente, foi ajustado o ganho do controlador visualizando a resposta ao degrau do sistema com controlador, tendo como foco que o tempo de acomodação
-fosse menor do que 4 segundos e principalmente que não houvesse sobressinal, pois como a planta possui uma margem de apenas 3 centimetros, sendo que nos 3 centimetros
-possui uma chave fim de curso em que corta a alimentação do motor, o sobressinal atrapalha muito o controle, a reposta ao degrau obtida é representada pela curva 'Modelado' na figura \ref{fig:comparacao_mf_controle_step}.
-Por fim, a equação do controlador PID obtido está explicitada na equação \ref{eq:controlador}.
+ 
+\subsection{Parâmetros do PID}
+Primeiramente, foi utilizado a modelagem do Maglev para encontrar os melhores valores de Kp, Ki e Kd para o controlador PID.
+Para isso, foi utilizado a ferramenta \textit{sisotool} do \textit{matlab} para posicionamento dos dois zeros e do integrador no sistema em malha fechada.
+Utilizando a abordagem de controle clássica do lugar das raízes, os zeros e o integrador foram adicionados e o ganho foi variado para encontrar o melhor posicionamento 
+dos polos do sistema em malha fechada, como mostrado pela Figura \ref{fig:pid_inicial} . A lei de controle encontrada pelo método foi:
 
 \begin{equation}
-  C = \frac{0,27951(z^2 - 1,994z + 0,9948)}{(z-1)}
-  \label{eq:controlador}
+  C(s) = 4 + \frac{20}{s} + 0.2s
+  \label{equa: controle inicial}
 \end{equation}
-
-% Retirei essa figura para poder diminuir no espaço, uma vez q essa curva está dentro de outro gráfico
-%\begin{figure}[!htb]
-%  \begin{center}
-%  \includegraphics[width=8.4cm]{figures/resposta_degrau_controlador_final.png}    % The printed column width is 8.4 cm.
-%  \caption{Resposta ao degrau da malha fechada da planta atualizada com controlador PID. Fonte: autoral, produzida com \textit{matlab}.} 
-%  \label{fig:resposta_degrau_mf_atualizado_controlador}
-%  \end{center}
-%\end{figure}
-
-No final, o controlador foi implementado e aplicado um degrau unitário na planta com o objetivo de comparar o resultado real com o esperado
-pela modelagem, essa comparação é representada pela figura \ref{fig:comparacao_mf_controle_step}.
 
 \begin{figure}[!htb]
   \begin{center}
-  \includegraphics[width=8.4cm]{figures/comparacao_mf_controle_step.png}    % The printed column width is 8.4 cm.
-  \caption{Comparação da resposta ao degrau em MF da planta em relação ao modelo, com controlador PID. Fonte: autoral, produzida com \textit{matlab}.} 
-  \label{fig:comparacao_mf_controle_step}
+  \includegraphics[width=8.4cm]{figures/lei pid inicial.jpg}    % The printed column width is 8.4 cm.
+  \caption{Posicionamento dos polos em malha fechada do sistema com o controle PID. Fonte: autoral, produzido com \textit{matlab}} 
+  \label{fig:pid_inicial}
   \end{center}
 \end{figure}
 
-Nessa comparação é possível perceber uma dinâmica aproximada entre os modelos, todavia, há algumas divergências nas amplitudes do movimento do período transitório
-e demora para estabilização no regime permanente.  
+Contudo, ao testar esses parâmetros no modelo real, percebeu-se que ao passar 15 segundos do início da simulação(momento em que a ação integral entra em ação),
+a bola de metal caía ou era atraída até encostar no ímã, isso mostra a facilidade com que o sistema entrava em instabilidade, sendo que isso não era previsto pelo modelo matemático. Esse 
+potencial de instabilidade pode ser visto pela Figura \ref{fig:pid_inicial}, em que há pouca margem de fase para o sistema, porque os polos complexos conjugados estão muito perto do eixo 
+real e isso torna o sistema mais sensível à se tornar instável.
+
+À partir disso, chegou-se à conclusão de tentar encontrar o parâmetro $Ki$ heurísticamente, pois como mostrado pela lei de controle na Equação \ref{equa: controle inicial}, esse valor era bem mais elevado que os demais. 
+Fazendo esse estudo das variações do parâmetro, encontrou-se o melhor valor para o ganho integrativo, como mostrado pela nova lei de controle na Equação \ref{equa: controle ajustado}. A nova lei de controle permitiu que 
+o sistema se mantivesse mais equilibrado na região de referência estabelecida, em contrapartida o sistemas continuava se tornando instável com o passar do tempo e com isso tornou-se necessária 
+a aplicação de um filtro para melhorar a ação de controle.
+
+\begin{equation}
+  C(s) = 4 + \frac{2}{s} + 0.2s
+  \label{equa: controle ajustado}
+\end{equation}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/lei pid ajuste.jpg}    % The printed column width is 8.4 cm.
+  \caption{Posicionamento dos polos em malha fechada do sistema com o controle PID ajustado. Fonte: autoral, produzido com \textit{matlab}} 
+  \label{fig:pid_ajustado}
+  \end{center}
+\end{figure}
+
+Ao longo do estudo da resposta da posição da bola metálica no sistema, ficou clara a influência da variação da referência na ação de controle, sendo que variações abruptas são 
+intensificadas pelo termo derivativo, por causa da sua tendência em amplificar ruídos de alta frequência(a variação abrupta do sinal de referência implica em um sinal com componentes 
+de alta frequência). Outro ponto importante, é que a ação proporcional amplifica a diferença entre as referências , o que também contribui para a má qualidade do sinal de controle.
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/Diagrama filtro.png}    % The printed column width is 8.4 cm.
+  \caption{Diagrama de blocos do sistema com o filtro na parte externa. Fonte: autoral} 
+  \label{fig:diagrama_filtro}
+  \end{center}
+\end{figure}
+
+Analisando esses aspectos, chegou-se à conclusão de que o filtro ideal a ser aplicado é o filtro de referência, mostrado pela figura \ref{fig:diagrama_filtro}, que introduz parâmetros $b$ e $c$ para controlar o efeito das ações 
+proporcional e derivativa, respectivamente. Esse filtro é implementado depois da referência e antes do nó de soma e possui a forma mostrada pela Equação \ref{equa: filtro}, para assim deixar 
+a ação de controle com o aspecto desejado e representado pela Equação \ref{equa: controle filtrado}.
+
+\begin{equation}
+  F(s) = \frac{1+bsT_{i}+cs^2T_{i}T_{d}}{1+sT_{i}+s^2T_{i}T_{d}}
+  \label{equa: filtro}
+\end{equation}
+
+\begin{equation}
+  U(s) = K_{p}(bR(s)-Y(s)) + K_{i}\frac{E(s)}{s} + K_{d}s(cR(s)-Y(s))
+  \label{equa: controle filtrado}
+\end{equation}
+
+Vale ressaltar que os parâmetros do PID mostrados pela Equação \ref{equa: controle ajustado} foram utilizados para encontrar os termos $Td$ e $Ti$ do filtro de referência e a relação entre esses parâmetros 
+é descrita pelas equações abaixo:
+
+\begin{equation*}
+  T_{i} = \frac{K_{p}}{K_{i}}
+  \label{equa: ti}
+\end{equation*}
+
+\begin{equation*}
+  T_{d} = \frac{K_{d}}{K_{p}}
+  \label{equa: td}
+\end{equation*}
+
+Por fim, os parâmetros $b$ e $c$ foram determinados empiricamente, levando em conta a teoria explicada e após alterá-los e testar o sistema sucessivamente para a mesma bolinha esférica, 
+chegou-se no valor 0,25 e 0,4 para os parâmetros $b$ e $c$, respectivamente. Com isso o filtro implementado no sistema possui a seguinte forma:
+
+\begin{equation}
+  F(s) = \frac{0.04s^2+0.5s+1}{0.1s^2+2s+1}
+  \label{equa: filtro completo}
+\end{equation}
+
 
 \section{Resultados experimentais em malha fechada}
-
-Essa seção testa o controle obtido em diversas situações e entradas diferentes na planta, esses testes são as figuras \ref{fig:teste1}, \ref{fig:teste2}, \ref{fig:teste3}, 
-\ref{fig:teste4} e \ref{fig:teste5}.
-
-% Coloquei esse gráfico dentro da parte de controle comparando com o modelo
-%\begin{figure}[!htb]
-%  \begin{center}
-%  \includegraphics[width=8.4cm]{figures/resultado_teste4.png}    % The printed column width is 8.4 cm.
-%  \caption{Resposta ao degrau unitário da planta, carro 1 e 2 com 4 pesos. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
-%  \label{fig:teste_step1_c1_4p_c2_4p}
-%  \end{center}
-%\end{figure}
 
 \begin{figure}[!htb]
   \begin{center}
