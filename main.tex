@@ -74,10 +74,6 @@ consequentemente irá impor uma força eletromagnética sobre a esfera fazendo-a
 
 \section{Modelagem matemática e validação do modelo}
 
-
-
-\subsection{Modelagem matemática}
-
 \subsection{Modelagem do Sensor}
 
 A variável quantificada pelo sensor corresponde à distância,
@@ -104,51 +100,26 @@ Inicialmente, procedemos com uma análise das forças atuantes
 no sistema em questão. A força exercida pela bobina é formulada
 mediante a seguinte expressão matemática:
 \begin{equation}
-    \vec{F_b} = k_1 \frac{i^2}{x^2}
+    \vec{F_b} = k \frac{i^2}{x^2}
 \end{equation}
 
-\noindent onde $i$ representa a intensidade da corrente elétrica, $x$ denota adistância entre o objeto e a bobina, e $k_1$ representa um coeficiente intrínseco ao circuito elétrico. Paralelamente, a força gravitacional que age sobre um corpo é definida como:
+\noindent onde $i$ representa a intensidade da corrente elétrica, $x$ denota adistância entre o objeto e a bobina, e $k$ representa um coeficiente intrínseco ao circuito elétrico. Paralelamente, a força gravitacional que age sobre um corpo é definida como:
 
 \begin{equation}
     \vec{F_g} = mg
 \end{equation}
 
-\noindent onde $i$ corresponde à massa do corpo em questão, e $g$ representa a aceleração devida à gravidade. Em concordância comos princípios da segunda lei de Newton, podemos estabelecer o
+\noindent onde $m$ corresponde à massa do corpo em questão, e $g$ representa a aceleração devida à gravidade. Em concordância comos princípios da segunda lei de Newton, podemos estabelecer o
 seguinte resultado:
 
 \begin{equation}
-    m\ddot{x} = mg - k_1 \frac{i^2}{x^2}
+    m\ddot{x} = mg - k \frac{i^2}{x^2}
 \end{equation}
-
-Contudo, considerando que o sinal de entrada se encontra na forma de tensão, torna-se mais propício realizar a conversão da corrente para a mesma unidade de medida. Contudo, o Maglev tem uma malha de controle de corrente interna, possibilitando a seguinte relação funcional:
 
 \begin{equation}
-    i = k_2u
+    f(x,i) = \ddot{x}_2 = g - \frac{k}{m} \frac{i^2}{x^2}
+    \label{eq:eqdif}
 \end{equation}
-
-\noindent onde $k_2$ representa um coeficiente constante e $u$ corresponde ao sinal de entrada em tensão. Substituindo a equação (5) em (4):
-
-\begin{equation}
-    m\ddot{x} = mg - k_1 \frac{(k_2u)^2}{x^2}
-\end{equation}
-
-Tendo as equações não lineares que representam o sistema, pode-se
-construir a representação da dinâmica da planta por:
-
-\begin{equation}
-    \dot{x}_1 = x_2
-\end{equation}
-\begin{equation}
-    \ddot{x}_2 = g - k_1 \frac{(k_2u)^2}{mx^2}
-\end{equation}
-
-A equação (8) pode ser simplificada para:
-
-\begin{equation}
-    f(x,u) = \ddot{x}_2 = g - \frac{k}{m} \frac{u^2}{x^2}
-\end{equation}
-
-\noindent facilitando a linearização.
 
 \subsection{Linearização}
 
@@ -161,52 +132,119 @@ um ponto fixo, para variações pequenas, curva pode ser aproximada por uma reta
     \delta x = x - x_{eq}
 \end{equation}
 \begin{equation}
-    \delta u = u - u_{eq}
+    \delta i = i - i_{eq}
 \end{equation}
 \begin{equation}
     \delta y = y - y_{eq}
 \end{equation}
 
-\noindent onde $x$, $u$ e $y$ são as variáveis originais, $x_{eq}$, $u_{eq}$ e $y_{eq}$ são valores que a planta assume quando está em uma condição de equilíbrio e $\delta x$, $\delta u$ e $\delta y$ as variações em torno do ponto de equilíbrio. Vale ressaltar que o ponto de equilíbrio escolhido deve ser o mais próximo possível das especificações de desempenho desejado, ou seja, os valores que fazem a esfera flutuar a 9 mm, pois fora do ponto de equilíbrio os comportamentos não lineares são mais evidentes. Substituindo o novo sistema de variáveis nas equações de estados a seguintes equações são obtidas:
+\noindent onde $x$, $i$ e $y$ são as variáveis originais, $x_{eq}$, $i_{eq}$ e $y_{eq}$ são valores que a planta assume quando está em uma condição de equilíbrio e $\delta x$, $\delta i$ e $\delta y$ as variações em torno do ponto de equilíbrio. Vale ressaltar que o ponto de equilíbrio escolhido deve ser o mais próximo possível das especificações de desempenho desejado, ou seja, os valores que fazem a esfera flutuar a 9 mm, pois fora do ponto de equilíbrio os comportamentos não lineares são mais evidentes. Encontra-se os pontos de equilíbrio igualando a equação \ref{eq:eqdif} a 0.
 
 \begin{equation}
-    \dot{x}_1 = x_2 = 0
+    \ddot{x}_2 = g - k \frac{i^2}{x^2} = 0 \rightarrow i = \sqrt{\frac{mg}{k}}x
 \end{equation}
-\begin{equation}
-    \ddot{x}_2 = g - k \frac{u_o^2}{x_o^2} = 0 \rightarrow u_o = \sqrt{\frac{mg}{k}}x_o
-\end{equation}
-Os valores de $m$ e $k$ não são definidos separadamente, mas sim através da seguinte relação:
+Quaisquer combinações de $i$ e $x$ que satisfaçam a relação anterior são considerados pontos de equilíbrio. Os valores de $m$ e $k$ não são definidos separadamente, mas sim através da seguinte relação:
 \begin{equation}
     \frac{k}{m} = 1,2415 \cdot 10^{-3}
 \end{equation}
-\noindent enquanto a aceleração da gravidade é tomada por $g = 9,81 \; m/s^2$. Sendo assim, a corrente de entrada para uma saída de equilíbrio $x_o = 9\;mm$ é:
+\noindent que é inerente ao sistema. A aceleração da gravidade é tomada por $g = 9,81 \; m/s^2$. Sendo assim, a corrente de entrada para uma saída de equilíbrio $x_o = 9\;mm$ é:
 \begin{equation}
-    u_o = \sqrt{\frac{9,81\;m/s^2}{1,2415 \cdot 10^{-3}}} \cdot 0,009\;m
+    i_o = \sqrt{\frac{9,81\;m/s^2}{1,2415 \cdot 10^{-3}}} \cdot 0,009\;m
 \end{equation}
 \begin{equation}
-    u_o = 0,8\;A
+    i_o = 0,8\;A
 \end{equation}
-
-O modelo linearizado da planta, portanto, é dado por:
+Portanto, a entrada e a saída de equilíbrio estipulados são $i_o = 0,8\;A$ e $x_o = 0,009\;m$, respectivamente. Neste ponto, o sistema é linearizado, deslocando-se o referencial, de modo que sua nova origem coincida com este ponto. O modelo linearizado da planta, então, é dado por:
 \begin{equation}
-    \ddot{x} = -[K_i u + a_x x]
+    \ddot{x} = -[K_i i + a_x x]
+    \label{eq:linear}
 \end{equation}
 onde $K_i$ e $a_x x$ são coeficientes dados por:
 \begin{equation}
-    K_i = [\frac{\partial}{\partial u}f(x,u)]_{x = x_o, u = u_o}
+    K_i = [\frac{\partial}{\partial i}f(x,i)]_{x = x_o, i = i_o}
 \end{equation}
 \begin{equation}
-    a_x = [\frac{\partial}{\partial x}f(x,u)]_{x = x_o, u = u_o}
+    a_x = [\frac{\partial}{\partial x}f(x,i)]_{x = x_o, i = i_o}
 \end{equation}
 Tomando as derivadas parciais e aplicando o ponto de operação, tem-se:
-
 \begin{equation}
-    K_i = \frac{-2ku_o}{mx_o^2} = \frac{-2\cdot1,2415 \cdot 10^{-3}\cdot 0,8\;A}{(0,009\;m)^2} = 
+    K_i = \frac{-2ki_o}{mx_o^2} = \frac{-2\cdot1,2415 \cdot 10^{-3}\cdot 0,8\;A}{(0,009\;m)^2} = -24,5250
 \end{equation}
 \begin{equation}
-    a_x = \frac{2ku_o^2}{mx_o^3} = \frac{2\cdot1,2415 \cdot 10^{-3}\cdot (0,8\;A)^2}{(0,009\;m)^3} = 
+    a_x = \frac{2ki_o^2}{mx_o^3} = \frac{2\cdot1,2415 \cdot 10^{-3}\cdot (0,8\;A)^2}{(0,009\;m)^3} = 2180
 \end{equation}
 
+Aplicando a transformada de Laplace ao modelo linearizado em \ref{eq:linear}, tem-se a seguinte função de transferência:
+\begin{equation}
+    s^2X(s) = -K_i I(s) - a_x X(s)
+\end{equation}
+\begin{equation}
+    G(s) = \frac{X(s)}{I(s)} = \frac{-K_i}{s^2+a_x}
+    \label{eq:FT1}
+\end{equation}
+
+Entretanto, a entrada do sistema, na prática, é dada por tensão. Essa relação é descrita por:
+\begin{equation}
+    i(t) = k_1u(t)
+\end{equation}
+\noindent onde $k_1$ é uma constante de proporcionalidade entre a tensão e a corrente do circuito e depende inteiramente das características físicas do mesmo. A equação anterior, no domínio de Laplace, se torna:
+\begin{equation}
+    I(s) = k_1U(s)
+    \label{eq:tensaocorrentelaplace}
+\end{equation}
+Substituindo \ref{eq:tensaocorrentelaplace} em \ref{eq:FT1}, tem-se:
+\begin{equation}
+    G(s) = \frac{X(s)}{k_1U(s)} = \frac{-k_1K_i}{s^2+a_x}
+    \label{eq:FT2}
+\end{equation}
+
+Por fim, a saída da planta, na prática, é dada por tensão, através da relação:
+\begin{equation}
+    v(t) = k_sx(t)
+\end{equation}
+que, em Laplace, é:
+\begin{equation}
+    V(s) = k_sX(s)
+    \label{eq:tensaosaidalaplace}
+\end{equation}
+Substituindo \ref{eq:tensaosaidalaplace} em \ref{eq:FT2}, tem-se:
+\begin{equation}
+    G(s) = \frac{V(s)}{U(s)} = \frac{-k_sk_1K_i}{s^2+a_x}
+\end{equation}
+Os valores das constantes são:
+\begin{equation}
+    k_1 = 1,05\; A/V
+\end{equation}
+\begin{equation}
+    k_s = 143,48\; V/m
+\end{equation}
+\noindent e foram obtidos pelo diagrama de simulação da planta.
+Ao final, a função de transferência que descreve o comportamento linear da planta em torno do ponto de operação estipulado em $x_o = 0,009\;m$ é:
+\begin{equation}
+    G(s) = \frac{3695}{s^2 - 2180}
+    \label{eq:FTFINAL}
+\end{equation}
+
+\subsection{Validação do Modelo}
+O modelo obtido não é estável e, portanto, não é possível aplicar uma entrada de tensão sem que a saida divirja. Sendo assim, o modelo será validado juntamente com um controle PD. Para o mesmo, o lugar das raízes da planta $G(s)$ foi analizado a fim de estipular um controlador PD do tipo:
+\begin{equation}
+    C(s) = K_d(s+\frac{K_p}{K_d})
+\end{equation}
+\noindent onde $K_d$ é o ganho do controlador e $\frac{K_p}{K_d}$ é o zero do mesmo. O lugar das raízes da planta está presente na figura abaixo.
+
+[COLOCAR LUGAR DAS RAIZES TÁ NO DESKTOP DO GUSTAVO]
+
+Sendo assim, a fim de estabilizar a planta, foi estipulado um zero em $s = -20$ e um ganho de 0,2, que resultou no seguinte lugar das raízes, com o deslocamento do polo instável para $s = -17,5$. O outro polo é negativo, então, para fins de validação, já está satisfatório.
+
+[COLOCAR LUGAR DAS RAIZES CORRIGIDO TÁ NO DESKTOP DO GUSTAVO]
+
+Portanto, tem-se:
+\begin{equation}
+    K_i = 0,2
+\end{equation}
+\begin{equation}
+    \frac{K_p}{K_i} = 20 \rightarrow K_p = 4
+\end{equation}
 \section{Projeto do controlador}
 
 A principio, buscamos realizar o controlador proporcional, integrativo e derivativo (PID), 
