@@ -368,7 +368,8 @@ e demora para estabilização no regime permanente.
 
 \section{Resultados experimentais em malha fechada}
 
-Essa seção testa o controle obtido em diversas situações e entradas diferentes na planta.
+Essa seção testa o controle obtido em diversas situações e entradas diferentes na planta, esses testes são as figuras \ref{fig:teste1}, \ref{fig:teste2}, \ref{fig:teste3}, 
+\ref{fig:teste4} e \ref{fig:teste5}.
 
 % Coloquei esse gráfico dentro da parte de controle comparando com o modelo
 %\begin{figure}[!htb]
@@ -382,46 +383,47 @@ Essa seção testa o controle obtido em diversas situações e entradas diferent
 \begin{figure}[!htb]
   \begin{center}
   \includegraphics[width=8.4cm]{figures/resultado_teste1.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta ao degrau unitário da planta, carro 1 com 1 peso e carro 2 com 4 pesos. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
-  \label{fig:teste_step1_c1_1p_c2_4p}
+  \caption{Resposta a onda quadrada com A=5,29mm e F=0,1Hz, e filtro com b=0,25 e c=0,4. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+  \label{fig:teste1}
   \end{center}
 \end{figure}
 
 \begin{figure}[!htb]
   \begin{center}
   \includegraphics[width=8.4cm]{figures/resultado_teste2.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta ao degrau unitário da planta, carro 1 e 2 com 1 peso. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
-  \label{fig:teste_step1_c1_1p_c2_1p}
+  \caption{Resposta a onda quadrada com A=5,29mm e F=0,1Hz, e filtro com b=0,15 e c=0,4. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+  \label{fig:teste2}
   \end{center}
 \end{figure}
 
 \begin{figure}[!htb]
   \begin{center}
   \includegraphics[width=8.4cm]{figures/resultado_teste3.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta ao degrau unitário da planta, carro 1 e 2 com nenhum peso. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
-  \label{fig:teste_step1_c1_0p_c2_0p}
+  \caption{Resposta a onda quadrada com A=5,29mm e F=0,1Hz, e filtro com b=0,5 e c=0,4. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+  \label{fig:teste3}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/resultado_teste4.png}    % The printed column width is 8.4 cm.
+  \caption{Resposta a onda quadrada com A=5,29mm e F=0,1Hz, e filtro com b=0,25 e c=0,1, carro 1 e 2 com 4 pesos. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+  \label{fig:teste4}
   \end{center}
 \end{figure}
 
 \begin{figure}[!htb]
   \begin{center}
   \includegraphics[width=8.4cm]{figures/resultado_teste5.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta a rampa com inclinação de 0,5cm/s e saturação em 2cm, carro 1 e 2 com 4 pesos. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
-  \label{fig:teste_ramp1_c1_4p_c2_4p}
+  \caption{Resposta a onda quadrada com A=5,29mm e F=0,1Hz, e filtro com b=0,25 e c=0,8, carro 1 e 2 com 4 pesos. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
+  \label{fig:teste5}
   \end{center}
 \end{figure}
 
-\begin{figure}[!htb]
-  \begin{center}
-  \includegraphics[width=8.4cm]{figures/resultado_teste6.png}    % The printed column width is 8.4 cm.
-  \caption{Resposta a senoide com amplitude de 2cm e frequencia de 1 Hz, carro 1 e 2 com 4 pesos. Fonte: autoral, produzido com \textit{matlab} por meio dos dados coletados na planta.} 
-  \label{fig:teste_sin1_c1_4p_c2_4p}
-  \end{center}
-\end{figure}
-
-Os testes exemplificados acima, mostram que o controle foi eficaz em sua maioria, pois foi capaz de atingir a referência para entradas de degrau unitário e conseguiu também ratrear outros tipo de entrada,
-isso mostra que apesar de simples, o controle PID é capaz de atingir requisitos específicos em uma planta e também consegue estabilizar os sitemas em sua maioria por possibilitar o posicionamento de dois zeros
-e um polo dentro da planta, sendo uma opção fácil e de eficaz impementação.    
+Analisando os testes exemplificados, vemos que no início a resposta é muito afetada pelo fato da planta exigir que a esfera de aço parte de uma posição favorável para a força magnética atuar, com isso a esfera 
+era colocada manualmente e, portanto, sujeita a diversos erros humanos de precisão como foi visto, mas após a esfera ser posicionada ela entra para o controle da planta.
+Ademais, quando a esfera entra na região de controle, é visto que o controle foi eficaz, pois foi capaz de atingir a referência de forma rápida, mas oscilava bem pouco em torno dela devido as características
+intrínsecas a planta. 
 
 \section{Conclusão}
 
