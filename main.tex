@@ -232,11 +232,23 @@ O modelo obtido não é estável e, portanto, não é possível aplicar uma entr
 \end{equation}
 \noindent onde $K_d$ é o ganho do controlador e $\frac{K_p}{K_d}$ é o zero do mesmo. O lugar das raízes da planta está presente na figura abaixo.
 
-[COLOCAR LUGAR DAS RAIZES TÁ NO DESKTOP DO GUSTAVO]
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/rloCUs.png}    % The printed column width is 8.4 cm.
+  \caption{Lugar das raízes da planta G(s). Fonte: Autoral, produzida com \textit{MATLAB}.} 
+  \label{fig:rlocus1}
+  \end{center}
+\end{figure}
 
 Sendo assim, a fim de estabilizar a planta, foi estipulado um zero em $s = -20$ e um ganho de 0,2, que resultou no seguinte lugar das raízes, com o deslocamento do polo instável para $s = -17,5$. O outro polo é negativo, então, para fins de validação, já está satisfatório.
 
-[COLOCAR LUGAR DAS RAIZES CORRIGIDO TÁ NO DESKTOP DO GUSTAVO]
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/rlocus2.png}    % The printed column width is 8.4 cm.
+  \caption{Lugar das raízes da planta G(s) com compensador C(s). Fonte: Autoral, produzida com \textit{MATLAB}.} 
+  \label{fig:rlocus2}
+  \end{center}
+\end{figure}
 
 Portanto, tem-se:
 \begin{equation}
@@ -245,6 +257,30 @@ Portanto, tem-se:
 \begin{equation}
     \frac{K_p}{K_i} = 20 \rightarrow K_p = 4
 \end{equation}
+
+Ao final, o sistema de validação será correspondente à seguinte figura:
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/diagramaPDvalidacao.png}    % The printed column width is 8.4 cm.
+  \caption{Diagrama em blocos do sistema realimentado para validação. Fonte: Autoral, produzida com \textit{SIMULINK}.} 
+  \label{fig:validacao}
+  \end{center}
+\end{figure}
+
+O sistema foi simulado para uma entrada de referência de onda quadrada com 2 mm de amplitude 1 Hz de frequência. O resultado da simulação está presente na figura \ref{fig:simvalidacao}.
+Vale lembrar que a saída está em torno do ponto de operação.
+\begin{figure}[!htb]
+  \begin{center}
+  \includegraphics[width=8.4cm]{figures/SimPDvalidacao.png}    % The printed column width is 8.4 cm.
+  \caption{Resultado de simulação. Fonte: Autoral, produzida com \textit{SIMULINK}.} 
+  \label{fig:simvalidacao}
+  \end{center}
+\end{figure}
+
+Em seguida, o teste prático foi realizado implementando o mesmo compensador PD utilizado na simulação. O resultado do teste não foi coletado, mas se
+mostrou bastante satisfatório em comparação com a planta simulada, ou seja, a função de transferência em \ref{eq:FTFINAL} se mostra capaz de representar
+o sistema real.
+
 \section{Projeto do controlador}
 
 A principio, buscamos realizar o controlador proporcional, integrativo e derivativo (PID), 
