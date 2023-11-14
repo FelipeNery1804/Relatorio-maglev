@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.5)  13 NOV 2023 13:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.5)  13 NOV 2023 13:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -266,7 +266,7 @@ LaTeX Font Info:    Calculating math sizes for size <14> on input line 15.
 LaTeX Warning: Reference `First' on page 1 undefined on input line 22.
 
 
-LaTeX Warning: Reference `First' on page 1 undefined on input line 23.
+LaTeX Warning: Reference `Second' on page 1 undefined on input line 23.
 
 
 LaTeX Warning: Reference `First' on page 1 undefined on input line 24.
@@ -545,10 +545,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 3962 strings out of 474933
- 67292 string characters out of 5763794
+ 3963 strings out of 474933
+ 67300 string characters out of 5763794
  1942801 words of memory out of 5000000
- 25467 multiletter control sequences out of 15000+600000
+ 25468 multiletter control sequences out of 15000+600000
  566368 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,9n,69p,1006b,319s stack positions out of 10000i,1000n,20000p,200000b,200000s
